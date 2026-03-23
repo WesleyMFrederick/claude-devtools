@@ -57,6 +57,8 @@
 - [D: When presenting an [H] in chat, always include the specific falsification steps. Format:] [^L5a]
   ```
   Testing [H]: (description)
+  - Utility: L/M/H — what decision this unlocks
+  - Cost: L/M/H — effort to test
   - (first falsification step — what would disprove it)
   - (second step)
   - Expected result if hypothesis holds / fails
