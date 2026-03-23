@@ -45,6 +45,6 @@
 - [D: Every `[OBS]`, `[F-ID]`, `[D]`, etc. tag in LEARNINGS.md must have a `[^LNx]` footnote linking to the specific transcript line(s) that evidence it.] [^L4a]
 - **domain:** LEARNINGS.md, evidence tag, footnote, [OBS], [H], [A], [F-ID], [D], write learning
 - **anti-domain:** code editing, testing, debugging, git, build, deploy, UI
-- **reasoning:** Only relevant when writing evidence-tagged content to LEARNINGS.md. Shares anti-domain with L2 since both are LEARNINGS.md authoring rules.
+- **reasoning:** Only relevant when writing evidence-tagged content to LEARNINGS.md. Shares anti-domain with [L2](#2.%20Learnings%20entries%20require%20real%20datetime%20and%20source%20paths%20with%20line%20numbers%20(2026-03-23%2009%2005))  since both are LEARNINGS.md authoring rules.
 
 [^L4a]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L401` (user: "each tag needs a link to a source")
