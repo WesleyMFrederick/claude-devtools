@@ -100,3 +100,35 @@
 - **reasoning:** Triggers when writing any operational documentation. Prevents orphaned processes.
 
 [^L7a]: current session (user: "#USER-FRICTION: We always need tear down instructions too. If you're giving instructions on how to spin something up, you also need instructions on how to tear it down")
+
+### 8. Traces must be complete — cover full entry-to-exit path (2026-03-23 11:12)
+
+- [OBS: Agent trace of sidebar session filtering covered the store→component filtering pipeline but missed: Session type definition (domain.ts), Sidebar/TabbedLayout integration, SessionItem click/tab flow, dateGrouping.ts logic, refreshSessionsInPlace real-time path, infinite scroll trigger. DeepWiki's trace of same feature covered all 7 areas.] [^L8a]
+- [OBS: User flagged #USER-FRICTION: "traces need to be complete"] [^L8b]
+- [F-ID: A trace that stops at "where to insert" without showing the full render path, data types, and surrounding layout integration is incomplete. The user needs the full picture to make design decisions — missing the Session type means not knowing what fields are available to filter by.]
+- [D: When tracing a feature path, cover ALL of: data types/interfaces, API layer, IPC/transport, store state management, real-time update paths, component tree integration (parent layout → target component → child renderers), user interaction handlers, and the concrete insertion point. Use DeepWiki as a baseline comparison when available.]
+- **domain:** trace, code trace, entry to exit, baseline, architecture, how does X work
+- **anti-domain:** simple bug fix, file creation, git, LEARNINGS authoring, interview prep
+- **reasoning:** Triggers on any trace or baseline investigation task. Prevents partial traces that miss critical context for downstream design decisions.
+
+[^L8a]: current session — agent trace at `traces/sidebar-session-filter-trace.md` compared to DeepWiki trace showing 7 sections vs agent's 2 main sections
+
+[^L8b]: current session (user: "#USER-FRICTION: traces need to be complete")
+
+### 9. Use bidirectional BFS with LSP at every trace node (2026-03-23 11:13)
+
+- [OBS: Agent traced sidebar filter path with narrow DFS — went to DateGroupedSessions visibleSessions memo and stopped. Missed 5+ nodes that LSP could have found: Session type (goToDefinition on session var), Sidebar.tsx (findReferences on DateGroupedSessions), dateGrouping.ts (goToDefinition on groupSessionsByDate), httpClient (goToDefinition on getSessionsPaginated).] [^L9a]
+- [OBS: User flagged #USER-FRICTION: "if I didn't give you deepwiki, how would you have found those items in the first place?"] [^L9b]
+- [F-ID: Every node in a trace has inbound edges (who calls/renders this?) and outbound edges (what does this call/import?). Tracing only outbound from one starting point produces a narrow path. BFS from every visited node covers the full graph.]
+- [D: At every node visited during a trace, run three LSP operations:] [^L9b]
+  1. `goToDefinition` on every imported symbol and type reference (trace downward)
+  2. `findReferences` on the component/function/variable itself (trace upward — who uses this?)
+  3. `documentSymbol` to see full shape, then read key methods
+  This is BFS of the call/render graph. Do not stop at the first relevant code path — exhaust all edges before concluding the trace.
+- **domain:** trace, code trace, LSP, entry to exit, baseline, architecture, findReferences, goToDefinition
+- **anti-domain:** simple single-file edit, git, LEARNINGS authoring, interview prep
+- **reasoning:** Directly extends Learning #1 (LSP-first) and Learning #8 (complete traces). This is the HOW — the specific LSP method that prevents incomplete traces.
+
+[^L9a]: current session — agent had LSP documentSymbol output for DateGroupedSessions showing all symbols but only read lines 108-142, missing infinite scroll at line 247 and SessionItem rendering
+
+[^L9b]: current session (user: "#USER-FRICTION: if I didn't give you deepwiki, how would you have found those items in the first place?")
