@@ -2,12 +2,15 @@
 
 ### 1. Use LSP-first for static analysis tracing (2026-03-23 09:05)
 
-- [OBS: Agent defaulted to Read/Grep for tracing import chains and electron dependency impact instead of using LSP `findReferences`, `incomingCalls`, `workspaceSymbol`]
-- [OBS: User corrected 3x: (1) rejected initial edit attempt without analysis, (2) requested "LSP trace to understand all impacted code", (3) asked "why are you reading vs using LSP?"]
-- [F-ID: LSP `findReferences` on a symbol gives definitive usage sites without manual file reading; `incomingCalls` traces callers; `workspaceSymbol` indexes the full project — all faster and more reliable than Grep/Read for TS/JS codebases]
-- [D: For TypeScript import chain analysis, always start with LSP operations before falling back to Grep/Read. The CLAUDE.md TYPESCRIPT/JAVASCRIPT SYMBOL SEARCH RULE already mandates this — agent failed to follow it.]
+- [OBS: Agent used Read/Grep 10x at L57-L98 to trace electron imports instead of LSP][^L1a]
+- [OBS: User corrected at L115 (rejected edit without analysis), L143 ("proceed with LSP trace"), L229 ("why are you reading vs using LSP?")][^L1b][^L1c][^L1d]
+- [F-ID: LSP `findReferences` gives definitive usage sites; `incomingCalls` traces callers; `workspaceSymbol` indexes full project — faster and more reliable than Grep/Read for TS/JS]
+- [D: For TypeScript import chain analysis, always start with LSP. The `~/.claude/CLAUDE.md:L58-L67` TYPESCRIPT/JAVASCRIPT SYMBOL SEARCH RULE already mandates this.]
 
-[^L1-REF]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L143` (user: "no. proceed with LSP trace to understand all impacted code"), `:L229` (user: "why are you reading vs using LSP?")
+[^L1a]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L57,L61,L65,L70,L74,L86,L90,L94,L98` (agent Read/Grep tool calls on electron dependency files)
+[^L1b]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L115` (user: "try again" — rejected edit attempt without analysis)
+[^L1c]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L143` (user: "no. proceed with LSP trace to understand all impacted code")
+[^L1d]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L229` (user: "why are you reading vs using LSP?")
 
 ### 2. Learnings entries require real datetime and source paths with line numbers (2026-03-23 09:05)
 
