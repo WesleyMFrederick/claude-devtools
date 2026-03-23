@@ -90,3 +90,13 @@
 [^L6a]: current session (user: "#USER-FRICTION: I don't trust your assertions unless you present them with evidence, tags, and as a hypothesis that you're going to falsify")
 
 [^L6b]: LEARNINGS.md L52-75 (Learning #5 — falsification steps for [H] in chat)
+
+### 7. Spin-up instructions must include tear-down (2026-03-23 10:38)
+
+- [OBS: Agent wrote QUICKSTART.md with server start instructions but no stop/teardown — user flagged #USER-FRICTION: "We always need tear down instructions too"] [^L7a]
+- [D: Any documentation that describes how to start a process (server, background task, container) must also include how to stop it. Pair every "start" with a "tear down" section.] [^L7a]
+- **domain:** quickstart, setup docs, server, docker, background process, spin up, start
+- **anti-domain:** code editing, testing, git, evidence ontology, LEARNINGS authoring
+- **reasoning:** Triggers when writing any operational documentation. Prevents orphaned processes.
+
+[^L7a]: current session (user: "#USER-FRICTION: We always need tear down instructions too. If you're giving instructions on how to spin something up, you also need instructions on how to tear it down")

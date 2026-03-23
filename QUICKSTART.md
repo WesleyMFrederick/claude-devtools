@@ -10,6 +10,12 @@ pnpm standalone:start
 ```
 Open http://127.0.0.1:3456 in your browser.
 
+### Tear Down
+```bash
+# Ctrl+C in the terminal running the server, or:
+pkill -f "node dist-standalone/index.cjs"
+```
+
 ### After Code Changes
 ```bash
 pnpm standalone:build && pnpm standalone:start
