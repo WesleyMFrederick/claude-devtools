@@ -1,5 +1,78 @@
 {
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rm:*)",
+      "Bash(node:*)",
+      "Bash(git checkout:*)",
+      "Bash(mkdir:*)",
+      "Bash(git mv:*)",
+      "Bash(git rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash(source:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(git branch:*)",
+      "Bash(find:*)",
+      "Bash(git worktree:*)",
+      "Bash(git push:*)",
+      "mcp__perplexity-mcp__search",
+      "mcp__playwright__browser_navigate",
+      "Bash(curl:*)",
+      "Bash(grep:*)",
+      "Bash(git cplsm:*)",
+      "Bash(diff:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "Bash(sed:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(npm run:*)",
+      "mcp__deepwiki__read_wiki_structure",
+      "mcp__deepwiki__read_wiki_contents",
+      "mcp__deepwiki__ask_question",
+      "Read(//Users/wesleyfrederick/.claude/scripts/**)",
+      "mcp__Context7__resolve-library-id",
+      "mcp__Context7__get-library-docs",
+      "Bash(npx markdownlint:*)",
+      "Bash(npm run mirror-workflows:*)",
+      "Bash(gh:*)",
+      "Bash(.claude/scripts/setup-worktree.sh:*)",
+      "Bash(openspec instructions:*)",
+      "Bash(openspec templates:*)",
+      "Bash(find:*)",
+      "Bash(ls:* || echo:*)",
+      "Bash(ls:*)",
+      "Bash(basename:*)",
+      "Bash(.venv/bin/python3:*)"
+    ],
+    "deny": [],
+    "ask": [],
+    "additionalDirectories": [
+      "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/OpenSpec-cc-workflows"
+    ]
+  },
+  "enableAllProjectMcpServers": false,
+  "enabledMcpjsonServers": [
+    "gdrive"
+  ],
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/user-prompt-submit.sh"
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Edit|Write",
@@ -7,6 +80,24 @@
           {
             "type": "command",
             "command": "jq -r '.tool_input.file_path // empty' | { read f; for p in pnpm-lock.yaml .env dist/ dist-electron/ node_modules/; do if [ -n \"$f\" ] && echo \"$f\" | grep -q \"$p\"; then echo \"Blocked: $f matches protected pattern '$p'\" >&2; exit 2; fi; done; exit 0; }"
+          }
+        ]
+      },
+      {
+        "matcher": "Read",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/jact/extractor.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/.claude/hooks/jact/validator.sh"
           }
         ]
       }
