@@ -48,3 +48,26 @@
 - **reasoning:** Only relevant when writing evidence-tagged content to LEARNINGS.md. Shares anti-domain with [L2](#2.%20Learnings%20entries%20require%20real%20datetime%20and%20source%20paths%20with%20line%20numbers%20(2026-03-23%2009%2005))  since both are LEARNINGS.md authoring rules.
 
 [^L4a]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L401` (user: "each tag needs a link to a source")
+
+### 5. Show falsification steps when presenting [H] in chat (2026-03-23 09:50)
+
+- [OBS: Agent presented hypothesis "dynamic require will work" in chat without showing specific steps to falsify it — user flagged #USER-FRICTION via `/evidence-ontology why do you think this will work`] [^L5a]
+- [F-ID: EVIDENCE-ONTOLOGY.md L67 says "negate-first is mandatory for hypotheses" but only addresses the resolve step in file artifacts. The chat presentation of [H] also needs the falsification plan visible so the user can steer before the agent runs off testing the wrong thing.] [^L5b]
+- [F-ID: Per Learning #4, chat uses the evidence ontology thinking process. Falsification steps are part of that process — they show the agent's testing plan, not just the claim.] [^L5c]
+- [D: When presenting an [H] in chat, always include the specific falsification steps. Format:] [^L5a]
+  ```
+  Testing [H]: (description)
+  - (first falsification step — what would disprove it)
+  - (second step)
+  - Expected result if hypothesis holds / fails
+  ```
+  This lets the user approve or redirect the testing plan before execution.
+- **domain:** chat output, hypothesis, [H], evidence ontology, testing plan, falsification, negate-first
+- **anti-domain:** file artifacts (already covered by ontology), code editing, git, build, deploy
+- **reasoning:** Triggers whenever the agent presents an uncertain claim in chat that it plans to act on. Prevents wasted cycles on wrong testing approach.
+
+[^L5a]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl` (user: "/evidence-ontology why do you think this will work" — flagged missing falsification steps)
+
+[^L5b]: `/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/.claude/skills/evidence-ontology/references/EVIDENCE-ONTOLOGY.md:L67` ("Strengthen must be negate-first")
+
+[^L5c]: LEARNINGS.md L42-50 (Learning #4 — evidence ontology thinking process applies in chat)
