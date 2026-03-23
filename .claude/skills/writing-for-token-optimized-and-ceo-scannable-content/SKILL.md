@@ -31,8 +31,6 @@ Loads ~2,000 word reference. Use when output optimization is critical.
 
 ## Reference
 
-1. Run !`jact extract file "formatting-reference.md"`
-
 See [formatting-reference.md](formatting-reference.md) for:
 - Content-Type Decision Matrix
 - Front-loading and visual hierarchy patterns

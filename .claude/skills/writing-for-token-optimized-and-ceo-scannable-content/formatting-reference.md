@@ -235,6 +235,34 @@ Full detail appropriate. These sections serve as reference material.
 
 **Key difference:** Comprehensive sections are **reference material** (System 2 reading expected). Overview sections are **decision support** (System 1 scanning).
 
+### Collapsible Sections (Obsidian Callouts)
+
+Use Obsidian foldable callouts (`> [!type]-`) to hide resolved/historical items while preserving them in the document. The `-` suffix makes the callout collapsed by default.
+
+**When to use:**
+- Resolved items interleaved with active items (whiteboard research, design docs)
+- Historical context that clutters scanning but has reference value
+- Superseded alternatives kept for audit trail
+
+**Pattern:**
+
+```markdown
+> [!info]- Resolved (3)
+>
+> 1. ~~[H-001: ...]~~ **CONFIRMED** — POC result...
+> 2. ~~[Q-003: ...]~~ **RESOLVED** — Reuse confirmed...
+> 3. ~~[A-001: ...]~~ **FALSIFIED** — Split into A-003, C-004...
+```
+
+**Rules:**
+- Use `> [!info]-` (with trailing `-`) for collapsed-by-default
+- Every content line inside the callout must start with `> `
+- Blank `> ` line between items for readability
+- Include count in title: `Resolved (3)` — enables scan without expanding
+- Keep active items ABOVE the callout — never collapse active work
+- If all items in a section are resolved, show `_(none active)_` above the callout
+- Do NOT use HTML `<details>` — Obsidian does not render markdown inside `<details>` tags
+
 ## Before/After Examples
 
 ### Example 1: Status Update

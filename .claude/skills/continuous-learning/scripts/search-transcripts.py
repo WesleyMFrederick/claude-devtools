@@ -20,9 +20,9 @@ FLAGS
 --full          In segment mode, print full message text (default: first 300 chars)
 """
 
-import argparse
 import json
 import sys
+import argparse
 from pathlib import Path
 
 PROJECTS_DIR = Path.home() / ".claude/projects"
@@ -140,6 +140,7 @@ def main():
     parser.add_argument("term", nargs="?", help="Search term (case-insensitive)")
     parser.add_argument("--from", dest="from_term", help="Segment mode: start anchor term")
     parser.add_argument("--to", dest="to_term", help="Segment mode: end anchor term")
+    parser.add_argument("--bounds", action="store_true", help="Output first_line, last_line, total_hits for the search term")
     parser.add_argument("--project", "-p", help="Filter by project name substring")
     parser.add_argument("--all", "-a", action="store_true", help="Search all projects (default: ResumeCoach)")
     parser.add_argument("--full", action="store_true", help="In segment mode, print full message text")
@@ -148,10 +149,13 @@ def main():
 
     # Validate mode
     segment_mode = bool(args.from_term or args.to_term)
+    bounds_mode = args.bounds
     if segment_mode and not (args.from_term and args.to_term):
         parser.error("--from and --to must both be provided for segment extraction")
-    if not segment_mode and not args.term:
+    if not segment_mode and not bounds_mode and not args.term:
         parser.error("Provide a search term, or use --from / --to for segment extraction")
+    if bounds_mode and not args.term:
+        parser.error("--bounds requires a search term")
 
     # Resolve JSONL files
     if args.dir:
@@ -175,6 +179,24 @@ def main():
         jsonl_files = []
         for d in project_dirs:
             jsonl_files.extend(sorted(d.glob("*.jsonl")))
+
+    # --- BOUNDS MODE ---
+    if bounds_mode:
+        found_any = False
+        for jsonl_path in jsonl_files:
+            hits = search_file(jsonl_path, args.term)
+            if hits:
+                found_any = True
+                lines = [h["line"] for h in hits]
+                print(f"BOUNDS: {args.term}")
+                print(f"  file: {jsonl_path.name}")
+                print(f"  first_line: {min(lines)}")
+                print(f"  last_line: {max(lines)}")
+                print(f"  total_hits: {len(hits)}")
+                print()
+        if not found_any:
+            print(f"BOUNDS: 0 hits for '{args.term}'")
+        return
 
     # --- SEGMENT MODE ---
     if segment_mode:
