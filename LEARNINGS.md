@@ -7,10 +7,10 @@
 - [F-ID: LSP `findReferences` gives definitive usage sites; `incomingCalls` traces callers; `workspaceSymbol` indexes full project — faster and more reliable than Grep/Read for TS/JS]
 - [D: For TypeScript import chain analysis, always start with LSP. The `~/.claude/CLAUDE.md:L58-L67` TYPESCRIPT/JAVASCRIPT SYMBOL SEARCH RULE already mandates this.]
 
-[^L1a]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L57,L61,L65,L70,L74,L86,L90,L94,L98` (agent Read/Grep tool calls on electron dependency files)
-[^L1b]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L115` (user: "try again" — rejected edit attempt without analysis)
-[^L1c]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L143` (user: "no. proceed with LSP trace to understand all impacted code")
-[^L1d]: `355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L229` (user: "why are you reading vs using LSP?")
+[^L1a]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L57,L61,L65,L70,L74,L86,L90,L94,L98` (agent Read/Grep tool calls on electron dependency files)
+[^L1b]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L115` (user: "try again" — rejected edit attempt without analysis)
+[^L1c]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L143` (user: "no. proceed with LSP trace to understand all impacted code")
+[^L1d]: `/Users/wesleyfrederick/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/355bd796-a554-400b-a35e-b4456c1e95d7.jsonl:L229` (user: "why are you reading vs using LSP?")
 
 ### 2. Learnings entries require real datetime and source paths with line numbers (2026-03-23 09:05)
 
