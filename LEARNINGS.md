@@ -73,3 +73,20 @@
 [^L5b]: `/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/.claude/skills/evidence-ontology/references/EVIDENCE-ONTOLOGY.md:L67` ("Strengthen must be negate-first")
 
 [^L5c]: LEARNINGS.md L42-50 (Learning #4 — evidence ontology thinking process applies in chat)
+
+### 6. All assertions require evidence grounding — no bare claims (2026-03-23 10:11)
+
+- [OBS: Agent presented "option 1 is the simplest fix" and "that's the smallest change" as bare assertions without evidence tags or falsification — user flagged #USER-FRICTION: "I don't trust your assertions unless you present them with evidence, tags, and as a hypothesis that you're going to falsify"] [^L6a]
+- [F-ID: Per Learning #5, [H] in chat needs falsification steps. But this is broader — even non-hypothesis claims ("simplest fix", "smallest change") need grounding. A claim about relative simplicity is itself a hypothesis unless backed by measurement.] [^L6b]
+- [D: Every actionable claim in chat must be grounded. Three levels:] [^L6a]
+  1. **Verified fact** — cite the observation: "line 388 uses `new Notification()` (read from file)"
+  2. **Derivation** — show the logic chain: "only 1 of 17 files imports a value, so blast radius is 1 file"
+  3. **Hypothesis** — present with falsification plan per Learning #5
+  Never present bare "I think X" or "X is simpler" without one of these.
+- **domain:** chat output, assertions, evidence, claims, recommendations, options, tradeoffs
+- **anti-domain:** file artifacts (already tagged), git commit messages, LEARNINGS.md authoring mechanics
+- **reasoning:** Broadest chat-output rule. Triggers on any recommendation or option presentation. Prevents the pattern of sounding confident without showing work.
+
+[^L6a]: current session (user: "#USER-FRICTION: I don't trust your assertions unless you present them with evidence, tags, and as a hypothesis that you're going to falsify")
+
+[^L6b]: LEARNINGS.md L52-75 (Learning #5 — falsification steps for [H] in chat)
