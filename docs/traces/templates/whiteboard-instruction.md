@@ -43,11 +43,18 @@ footnote without verified source. No abbreviated paths.
   Use markdown links for .md files with :line-range. Use codeblock paths for
   non-.md files. Include hooks and consumers — they define constraints.
 
-- **Bucket Sections**: Each bucket (Baseline, Ideal, Delta) contains all 13 evidence
-  type subsections. After populating all buckets, any subsection with NO tagged items
-  must be wrapped in HTML comment delimiters (`<!-- ... -->`) so it is hidden from
-  the human reader. Keep the heading inside the comment so the section can be restored
-  later. Populated subsections are visible with numbered list items.
+- **BI Table**: Outcomes ([O] tags) live in a dedicated BI table ABOVE the buckets,
+  not inside them. Each row pairs a Baseline [O] with its Ideal [O] side-by-side.
+  Untargeted rows (no change needed) repeat the Baseline in the Ideal column.
+  Row 0 is reserved for the synthesized goal. The BI table is the primary
+  scannable artifact — it shows the full change scope at a glance.
+
+- **Bucket Sections**: Each bucket (Baseline, Ideal, Delta) contains 12 evidence
+  type subsections (all types EXCEPT [O], which lives in the BI table). After
+  populating all buckets, any subsection with NO tagged items must be wrapped in
+  HTML comment delimiters (`<!-- ... -->`) so it is hidden from the human reader.
+  Keep the heading inside the comment so the section can be restored later.
+  Populated subsections are visible with numbered list items.
 
 - **Evidence Source Paths**: Footnote block at document bottom. Every source
   referenced by [^S-NNN] gets one line:

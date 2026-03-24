@@ -44,10 +44,19 @@
 
 ---
 
-## Baseline Bucket
+## BI Table — Outcomes
 
-### Baseline Outcomes
-<!-- [O] tags: stable end-states the actor inhabits today -->
+<!-- [O] tags live here, NOT in the buckets. Each row pairs a Baseline outcome
+     with its Ideal outcome side-by-side. Untargeted rows repeat Baseline in Ideal.
+     Row 0 is the synthesized goal. -->
+
+| # | Baseline [O] | Ideal [O] |
+|---|-------------|-----------|
+| 0 | {{current state for goal}} | {{target state for goal}} |
+
+---
+
+## Baseline Bucket
 
 ### Baseline Metrics
 <!-- [M] tags: numerical observations with reproduction commands -->
@@ -89,9 +98,6 @@
 
 ## Ideal Bucket
 
-### Ideal Outcomes
-<!-- [O] tags: stable end-states the actor inhabits after change -->
-
 ### Ideal Metrics
 <!-- [M] tags: target numerical values -->
 
@@ -131,9 +137,6 @@
 ---
 
 ## Delta Bucket
-
-### Delta Outcomes
-<!-- [O] tags: capability changes that bridge Baseline to Ideal -->
 
 ### Delta Metrics
 <!-- [M] tags: measured change values -->

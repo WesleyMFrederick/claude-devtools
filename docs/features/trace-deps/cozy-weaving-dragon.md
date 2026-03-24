@@ -7,18 +7,7 @@
 <!-- TEMPLATE RULE: After populating all buckets, wrap any section that has
      NO tagged items (only the placeholder comment remains) in HTML comment
      delimiters so it is hidden from the human reader. Keep the heading inside
-     the comment so the section can be restored later.
-
-     Example — empty section hidden:
-     <!--
-     ### Baseline Evidence
-     [E] tags: observation + source + link that updates a hypothesis
-     - ->
-
-     Example — populated section (visible, comment removed):
-     ### Baseline Evidence
-     1. [E-001: CPU spike confirms bottleneck] [^S-005] ...
--->
+     the comment so the section can be restored later. -->
 
 ## Bootstrap Instructions
 
@@ -67,17 +56,17 @@ that replaces the deterministic portion with a single CLI invocation.
 | Artifact | Path | Role |
 |----------|------|------|
 | Session transcript | `~/.claude/projects/-Users-wesleyfrederick-...-claude-devtools/1476793d-a02f-4a92-817e-2f314b16817c.jsonl` | Primary evidence for friction patterns |
-| Sidebar filter trace | [20260323-sidebar-filter-baseline.md](../traces/20260323-sidebar-filter-baseline.md) | Output showing 33-call methodology |
-| Methodology trace | [20260323-sidebar-trace-methodology.md](../traces/20260323-sidebar-trace-methodology.md) | Meta-trace classifying each call |
-| Deterministic analysis | [20260323-deterministic-trace-analysis.md](../traces/20260323-deterministic-trace-analysis.md) | Classification scorecard + architecture |
+| Sidebar filter trace | [20260323-sidebar-filter-baseline.md](../../traces/20260323-sidebar-filter-baseline.md) | Output showing 33-call methodology |
+| Methodology trace | [20260323-sidebar-trace-methodology.md](../../traces/20260323-sidebar-trace-methodology.md) | Meta-trace classifying each call |
+| Deterministic analysis | [20260323-deterministic-trace-analysis.md](../../traces/20260323-deterministic-trace-analysis.md) | Classification scorecard + architecture |
 | Architecture Principles | [ARCHITECTURE-PRINCIPLES.md](../../../ARCHITECTURE-PRINCIPLES.md):102-109 | Deterministic Offloading Principles |
 | CLAUDE.md (global) | `~/.claude/CLAUDE.md` | Contains LSP-first rule (L58-67) |
 | Learnings #1, #8, #9 | Session context | Prior corrections driving trace methodology |
 | Continuous Learning skill | `.claude/skills/continuous-learning/SKILL.md` | CL workflow and BI table rules |
 | Evidence Ontology skill | `.claude/skills/evidence-ontology/SKILL.md` | Loads ontology tags into context |
 | Evidence Ontology reference | `.claude/skills/evidence-ontology/references/EVIDENCE-ONTOLOGY.md` | Canonical tag definitions |
-| Whiteboard template | [whiteboard.md](../traces/templates/whiteboard.md) | Source template for this artifact |
-| Whiteboard instruction | [whiteboard-instruction.md](../traces/templates/whiteboard-instruction.md) | Population rules |
+| Whiteboard template | [whiteboard.md](../../traces/templates/whiteboard.md) | Source template for this artifact |
+| Whiteboard instruction | [whiteboard-instruction.md](../../traces/templates/whiteboard-instruction.md) | Population rules |
 | Formatting reference | `.claude/skills/writing-for-token-optimized-and-ceo-scannable-content/formatting-reference.md` | Scannability patterns, callout syntax |
 | Source plan file | `~/.claude/plans/cozy-weaving-dragon.md` | Original plan being pivoted |
 
@@ -95,15 +84,19 @@ that replaces the deterministic portion with a single CLI invocation.
 
 ---
 
+## BI Table — Outcomes
+
+| # | Baseline [O] | Ideal [O] |
+|---|-------------|-----------|
+| 1 | [O-001: Agent can trace a codebase feature path by making ~33 LLM tool calls across LSP, Read, Grep, and Glob] [^S-002] ^O-001 | [O-006: Agent can trace a codebase feature path with a single deterministic tool call plus LLM synthesis] [^S-004] ^O-006 |
+| 2 | [O-002: Agent can resolve TypeScript import chains by falling back to Grep when LSP fails on barrel re-exports] [^S-003] ^O-002 | [O-007: Agent can resolve TypeScript import chains with zero failures regardless of barrel re-export depth] [^S-004] ^O-007 |
+| 3 | [O-003: Agent can discover which files to read by making sequential judgment calls about directory structure] [^S-003] ^O-003 | [O-008: Agent can discover all files in a dependency graph without guessing directory structure] [^S-004] ^O-008 |
+| 4 | [O-004: Agent can build structured trace documents from raw source code] [^S-003] ^O-004 | [O-009: Agent can build structured trace documents from raw source code] [^S-004] _(untargeted)_ ^O-009 |
+| 5 | [O-005: Agent can identify store connections, JSX renders, and API calls by reading source and applying judgment] [^S-003] ^O-005 | [O-010: Agent can identify store connections, JSX renders, and API calls from a pre-computed structured graph] [^S-004] ^O-010 |
+
+---
+
 ## Baseline Bucket
-
-### Baseline Outcomes
-
-1. [O-001: Agent can trace a codebase feature path by making ~33 LLM tool calls across LSP, Read, Grep, and Glob] [^S-002] ^O-001
-2. [O-002: Agent can resolve TypeScript import chains by falling back to Grep when LSP fails on barrel re-exports] [^S-003] ^O-002
-3. [O-003: Agent can discover which files to read by making sequential judgment calls about directory structure] [^S-003] ^O-003
-4. [O-004: Agent can build structured trace documents from raw source code] [^S-003] ^O-004
-5. [O-005: Agent can identify store connections, JSX renders, and API calls by reading source and applying judgment] [^S-003] ^O-005
 
 ### Baseline Metrics
 
@@ -173,14 +166,6 @@ that replaces the deterministic portion with a single CLI invocation.
 ---
 
 ## Ideal Bucket
-
-### Ideal Outcomes
-
-1. [O-006: Agent can trace a codebase feature path with a single deterministic tool call plus LLM synthesis] [^S-004] ^O-006
-2. [O-007: Agent can resolve TypeScript import chains with zero failures regardless of barrel re-export depth] [^S-004] ^O-007
-3. [O-008: Agent can discover all files in a dependency graph without guessing directory structure] [^S-004] ^O-008
-4. [O-009: Agent can build structured trace documents from raw source code] [^S-004] Untargeted — carries through from baseline ^O-009
-5. [O-010: Agent can identify store connections, JSX renders, and API calls from a pre-computed structured graph] [^S-004] ^O-010
 
 ### Ideal Metrics
 
@@ -337,7 +322,7 @@ that replaces the deterministic portion with a single CLI invocation.
 
 | # | Item | Utility | Cost | DRI | Status |
 |---|------|---------|------|-----|--------|
-| 1 | BI table lock [e2] — review Baseline/Ideal outcomes above | High | Low | User | Open |
+| 1 | BI table lock [e2] — review BI Table above | High | Low | User | Open |
 
 ### Tier 2 — Medium utility, informs schema decisions
 
