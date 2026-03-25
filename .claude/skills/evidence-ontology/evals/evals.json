@@ -1,0 +1,23 @@
+{
+  "skill_name": "evidence-ontology",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to write a design doc for a new caching layer. The current system reads from PostgreSQL on every request. I've measured p95 latency at 340ms. Start by decomposing the problem space.",
+      "expected_output": "A problem decomposition using properly formatted evidence tags: [M] for the 340ms measurement with reproduction command requirement noted, [OBS] only for things directly read/verified, [H] for caching hypotheses with strengthen steps, [A] for unverified claims, [C] for immutable constraints. All tags should use [TAG: content] format with source footnotes where applicable.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write a baseline analysis of our auth middleware. I read src/auth/middleware.ts and found it stores session tokens in a cookie with httpOnly=true at line 47. The token TTL is set to 3600s at line 52. Legal says we need to move to server-side sessions for SOC2 compliance.",
+      "expected_output": "A baseline analysis following the whiteboard template structure (BID buckets, NBA table, evidence source paths). User-reported observations tagged [A: reported] not [OBS]. Legal mandate tagged [C]. NBA table present with all open Q/A/H items ranked by Utility x Cost.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Wait, I just realized I've been tagging things wrong. I wrote [OBS: Redis is fast] without reading any actual code, and I tagged a constraint as [D: must use PostgreSQL] even though we can't change the database. Can you re-ground me on the ontology and fix these tags?",
+      "expected_output": "Correction of both misclassifications with ontology rule citations. [OBS: Redis is fast] → [A]. [D: must use PostgreSQL] → [C]. If corrections generate open items (Q/A/H), include an NBA table.",
+      "files": []
+    }
+  ]
+}

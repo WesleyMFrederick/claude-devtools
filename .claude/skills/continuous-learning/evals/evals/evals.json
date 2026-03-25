@@ -1,0 +1,23 @@
+{
+  "skill_name": "continuous-learning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I had to correct Claude three times this session to use `bun` instead of `npm`. Run /continuous-learning.",
+      "expected_output": "Phase 1 surfaces correction pattern. Phase 2 produces [O]-level BI rows with matching units. HARD GATEs fire at Phases 2 and 3. Single Delta row bridging npm→bun behavior.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "This session had a few rough spots: Claude kept reading files I'd already loaded, it hit a jact validation error twice before getting the path right, and I had to manually run touch after every markdown edit. /continuous-learning",
+      "expected_output": "Phase 1 surfaces 3 findings across different pattern categories. Phase 2 BI table has 3+ rows with like-for-like [O] units. Phase 5 architecture maps fixes to memory, hook, and CLAUDE.md respectively. All Baseline rows persist through BDI.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Claude's commit messages were bad all session. It kept using 'update' for everything. Also the worktree skill doesn't clean up branches after merge. /continuous-learning",
+      "expected_output": "Phase 6 produces one small inline diff (CLAUDE.md commit message rule, <15 lines) and one large plan-artifact diff (skill rewrite, 15+ lines) using plan-template format with ADDED/MODIFIED/REMOVED/UNTOUCHED sections.",
+      "files": []
+    }
+  ]
+}

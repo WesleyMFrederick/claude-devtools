@@ -1,0 +1,16 @@
+{
+  "eval_id": 2,
+  "eval_name": "mixed-friction-three-patterns",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "has_phased_structure", "passed": false, "evidence": "Flat structure: Issues Found, Proposed Changes, Priority"},
+    {"text": "findings_table_present", "passed": false, "evidence": "Numbered list but no structured table"},
+    {"text": "bid_table_present", "passed": false, "evidence": "No BID table"},
+    {"text": "outcomes_in_O_format", "passed": false, "evidence": "Implementation-focused: 'Add a rule', 'Update the finishing skill'"},
+    {"text": "hard_gates_respected", "passed": false, "evidence": "No gates — straight from analysis to proposals"},
+    {"text": "baseline_immutability", "passed": false, "evidence": "No Baseline concept"},
+    {"text": "like_for_like_units", "passed": false, "evidence": "No ontology units"},
+    {"text": "diff_present", "passed": false, "evidence": "No diff blocks — prose descriptions of changes only"},
+    {"text": "no_edit_before_approval", "passed": true, "evidence": "Proposes but doesn't apply"}
+  ]
+}

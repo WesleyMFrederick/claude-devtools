@@ -1,0 +1,19 @@
+{
+  "eval_id": 3,
+  "eval_name": "large-diff-plan-template-format",
+  "configuration": "with_skill",
+  "expectations": [
+    {"text": "has_phased_structure", "passed": true, "evidence": "Phase 0-7 headers in sequence"},
+    {"text": "findings_table_present", "passed": true, "evidence": "Phase 1 table with 2 rows"},
+    {"text": "bid_table_present", "passed": true, "evidence": "Phase 3 BDI table with 2 rows"},
+    {"text": "outcomes_in_O_format", "passed": true, "evidence": "All B/I cells are end-states"},
+    {"text": "hard_gates_respected", "passed": true, "evidence": "HARD GATE at Phase 2, 3, 5, 6"},
+    {"text": "baseline_immutability", "passed": true, "evidence": "Both rows preserved"},
+    {"text": "like_for_like_units", "passed": true, "evidence": "Both rows [O] to [O]"},
+    {"text": "diff_present", "passed": true, "evidence": "DIFF-1 inline, DIFF-2 plan-template"},
+    {"text": "no_edit_before_approval", "passed": true, "evidence": "Phase 7 awaits approval"},
+    {"text": "plan_template_for_large_diff", "passed": true, "evidence": "DIFF-2 uses ADDED/MODIFIED/REMOVED/UNTOUCHED format"},
+    {"text": "deterministic_offloading", "passed": true, "evidence": "Phase 5 correctly classifies F-1 as semantic (LLM must read diff to classify change type → CLAUDE.md rule, Priority 3) and F-2 as mechanical (branch deletion after merge → script/skill, Priority 2). Not all fixes are hooks — semantic work stays with the LLM."},
+    {"text": "architecture_principles_read", "passed": true, "evidence": "Phase 5 opens with 'Read ARCHITECTURE-PRINCIPLES.md to ground architecture decisions in project principles.'"}
+  ]
+}

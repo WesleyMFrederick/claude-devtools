@@ -1,0 +1,17 @@
+{
+  "eval_id": 3,
+  "eval_name": "large-diff-plan-template-format",
+  "configuration": "with_skill",
+  "expectations": [
+    {"text": "has_phased_structure", "passed": true, "evidence": "Output has Phase 0-7 headers in sequence"},
+    {"text": "findings_table_present", "passed": true, "evidence": "Phase 1 has 2-row table with correct columns"},
+    {"text": "bid_table_present", "passed": true, "evidence": "Phase 3 has BDI table with 2 rows"},
+    {"text": "outcomes_in_O_format", "passed": true, "evidence": "B/I cells are end-states: 'generates generic update...', 'generates accurate type-specific...'"},
+    {"text": "hard_gates_respected", "passed": true, "evidence": "HARD GATE markers at Phase 2, 3, 5, 6"},
+    {"text": "baseline_immutability", "passed": true, "evidence": "Both Baseline rows preserved from BI to BDI"},
+    {"text": "like_for_like_units", "passed": true, "evidence": "Both rows [O] to [O]"},
+    {"text": "diff_present", "passed": true, "evidence": "DIFF-1 inline, DIFF-2 as plan-template format"},
+    {"text": "no_edit_before_approval", "passed": true, "evidence": "Phase 7 says 'Awaiting user approval'"},
+    {"text": "plan_template_for_large_diff", "passed": true, "evidence": "DIFF-2 uses plan-template with ADDED/MODIFIED/REMOVED/UNTOUCHED sections, Baseline Tracing Guide, Verification"}
+  ]
+}

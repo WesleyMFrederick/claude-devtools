@@ -1,0 +1,16 @@
+{
+  "eval_id": 1,
+  "eval_name": "single-correction-bun-vs-npm",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "has_phased_structure", "passed": false, "evidence": "No phased structure — uses flat sections (Issue Summary, Observations, Root Cause, Proposed Improvements)"},
+    {"text": "findings_table_present", "passed": false, "evidence": "Numbered observations but no structured table with ID/Pattern/Scope/Trigger/Friction columns"},
+    {"text": "bid_table_present", "passed": false, "evidence": "No BID table present"},
+    {"text": "outcomes_in_O_format", "passed": false, "evidence": "No [O] format used — descriptions are implementation-focused ('Add rule', 'Create hook')"},
+    {"text": "hard_gates_respected", "passed": false, "evidence": "No HARD GATEs — proceeds straight from analysis to proposed changes"},
+    {"text": "baseline_immutability", "passed": false, "evidence": "No Baseline concept present — cannot assess immutability"},
+    {"text": "like_for_like_units", "passed": false, "evidence": "No ontology units used"},
+    {"text": "diff_present", "passed": true, "evidence": "One diff block for CLAUDE.md change"},
+    {"text": "no_edit_before_approval", "passed": true, "evidence": "Proposes changes but doesn't apply them"}
+  ]
+}

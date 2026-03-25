@@ -1,0 +1,17 @@
+{
+  "eval_id": 3,
+  "eval_name": "large-diff-plan-template-format",
+  "configuration": "without_skill",
+  "expectations": [
+    {"text": "has_phased_structure", "passed": false, "evidence": "Flat: Issues Found, Proposed Changes, Priority"},
+    {"text": "findings_table_present", "passed": false, "evidence": "Numbered sections, no structured table"},
+    {"text": "bid_table_present", "passed": false, "evidence": "No BID table"},
+    {"text": "outcomes_in_O_format", "passed": false, "evidence": "Implementation language: 'Add a rule', 'Update the finishing skill'"},
+    {"text": "hard_gates_respected", "passed": false, "evidence": "No gates"},
+    {"text": "baseline_immutability", "passed": false, "evidence": "No Baseline concept"},
+    {"text": "like_for_like_units", "passed": false, "evidence": "No ontology units"},
+    {"text": "diff_present", "passed": true, "evidence": "One small diff block for CLAUDE.md"},
+    {"text": "no_edit_before_approval", "passed": true, "evidence": "Proposes but doesn't apply"},
+    {"text": "plan_template_for_large_diff", "passed": false, "evidence": "No plan-template format — worktree fix described in prose only"}
+  ]
+}

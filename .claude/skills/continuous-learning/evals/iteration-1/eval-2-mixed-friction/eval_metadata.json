@@ -1,0 +1,52 @@
+{
+  "eval_id": 2,
+  "eval_name": "mixed-friction-three-patterns",
+  "prompt": "This session had a few rough spots: Claude kept reading files I'd already loaded, it hit a jact validation error twice before getting the path right, and I had to manually run touch after every markdown edit. /continuous-learning",
+  "assertions": [
+    {
+      "id": "A1",
+      "text": "has_phased_structure",
+      "description": "Output follows Phase 1-7 progression from the skill"
+    },
+    {
+      "id": "A2",
+      "text": "findings_table_present",
+      "description": "A structured findings table with ID, Pattern, Scope, Trigger, Friction columns exists"
+    },
+    {
+      "id": "A3",
+      "text": "bid_table_present",
+      "description": "A BID table with Baseline/Delta/Ideal columns exists"
+    },
+    {
+      "id": "A4",
+      "text": "outcomes_in_O_format",
+      "description": "B and I cells describe end-states (actor can do X), not implementation steps"
+    },
+    {
+      "id": "A5",
+      "text": "hard_gates_respected",
+      "description": "Output pauses at HARD GATEs, mentions waiting for user approval"
+    },
+    {
+      "id": "A6",
+      "text": "baseline_immutability",
+      "description": "No Baseline row is dropped between BI and BDI tables"
+    },
+    {
+      "id": "A7",
+      "text": "like_for_like_units",
+      "description": "B and I use same ontology type per row"
+    },
+    {
+      "id": "A8",
+      "text": "diff_present",
+      "description": "At least one diff block is proposed"
+    },
+    {
+      "id": "A9",
+      "text": "no_edit_before_approval",
+      "description": "No file edits occur before HARD GATE approval"
+    }
+  ]
+}

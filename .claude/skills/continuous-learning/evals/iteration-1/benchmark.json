@@ -1,0 +1,58 @@
+{
+  "skill_name": "continuous-learning",
+  "iteration": 1,
+  "configurations": [
+    {
+      "name": "with_skill",
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "per_eval": [
+          {"eval_name": "single-correction-bun-vs-npm", "pass_rate": 1.0, "passed": 9, "total": 9},
+          {"eval_name": "mixed-friction-three-patterns", "pass_rate": 1.0, "passed": 9, "total": 9},
+          {"eval_name": "large-diff-plan-template-format", "pass_rate": 1.0, "passed": 10, "total": 10}
+        ]
+      },
+      "time": {
+        "mean_seconds": 96.0,
+        "stddev_seconds": 9.3
+      },
+      "tokens": {
+        "mean": 24886,
+        "stddev": 2363
+      }
+    },
+    {
+      "name": "without_skill",
+      "pass_rate": {
+        "mean": 0.22,
+        "stddev": 0.04,
+        "per_eval": [
+          {"eval_name": "single-correction-bun-vs-npm", "pass_rate": 0.22, "passed": 2, "total": 9},
+          {"eval_name": "mixed-friction-three-patterns", "pass_rate": 0.11, "passed": 1, "total": 9},
+          {"eval_name": "large-diff-plan-template-format", "pass_rate": 0.20, "passed": 2, "total": 10}
+        ]
+      },
+      "time": {
+        "mean_seconds": 71.7,
+        "stddev_seconds": 9.2
+      },
+      "tokens": {
+        "mean": 17423,
+        "stddev": 6679
+      }
+    }
+  ],
+  "delta": {
+    "pass_rate": "+0.78 (0.22 → 1.00)",
+    "time": "+24.3s (71.7s → 96.0s)",
+    "tokens": "+7463 (17423 → 24886)"
+  },
+  "analyst_observations": [
+    "The skill achieves 100% pass rate across all assertions and all eval scenarios",
+    "Baseline passes only on 'diff_present' and 'no_edit_before_approval' — these are non-discriminating for the skill's core value (phased BID workflow, [O] format, HARD GATEs)",
+    "Time and token overhead is modest (+34% time, +43% tokens) given the structured output quality gain",
+    "The plan-template assertion (A10, eval 3 only) validates the large-diff format branching works correctly",
+    "No high-variance evals detected — all with-skill runs pass all assertions consistently"
+  ]
+}
