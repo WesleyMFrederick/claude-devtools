@@ -356,8 +356,8 @@ export class ConfigManager {
    */
   static async initializeInstance(configPath?: string): Promise<ConfigManager> {
     const instance = new ConfigManager(configPath);
+    ConfigManager.instance = instance; // Set BEFORE await so getInstance() returns same object
     await instance.initialize();
-    ConfigManager.instance = instance;
     return instance;
   }
 
