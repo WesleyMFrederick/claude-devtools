@@ -61,6 +61,7 @@ process.on('uncaughtException', (error) => {
 import { HttpServer } from './services/infrastructure/HttpServer';
 import {
   configManager,
+  configManagerPromise,
   LocalFileSystemProvider,
   NotificationManager,
   ServiceContext,
@@ -556,9 +557,12 @@ function createWindow(): void {
 /**
  * Application ready handler.
  */
-void app.whenReady().then(() => {
+void app.whenReady().then(async () => {
   logger.info('App ready, initializing...');
   try {
+    // Wait for config to load from disk before using it
+    await configManagerPromise;
+
     // Initialize services first
     initializeServices();
 
