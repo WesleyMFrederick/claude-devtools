@@ -132,3 +132,20 @@
 [^L9a]: current session — agent had LSP documentSymbol output for DateGroupedSessions showing all symbols but only read lines 108-142, missing infinite scroll at line 247 and SessionItem rendering
 
 [^L9b]: current session (user: "#USER-FRICTION: if I didn't give you deepwiki, how would you have found those items in the first place?")
+
+### 10. #NEEDS-REVIEW — Claude Code sandbox blocks read-only system inspection tools (2026-03-25 09:01)
+- [OBS: User asked "my activity monitor always sits at 20gb out of 24 gb" — agent gave generic advice without checking processes] [^L10a]
+- [OBS: Agent attempted `top -l 1` and `ps -p` — both returned "operation not permitted" due to Claude Code sandbox] [^L10b]
+- [OBS: `vm_stat` and `sysctl hw.memsize` work in sandbox, but `ps`, `top` do not — no way to list processes by memory] [^L10b]
+- [H: Claude Code sandbox blocks `ps`/`top` for data-leak prevention (command args may contain secrets), not because they're destructive] [^L10c]
+- [A: Allowlisting `ps`/`top` in sandbox settings would fix this, but user may not want to weaken sandbox. Risk-if-wrong: security exposure from command-line args in process list] [^L10c]
+- [D: When user asks about system resource usage, attempt `top`/`ps` first. If sandbox blocks, immediately say so and ask for Activity Monitor screenshot rather than giving generic advice.] [^L10a]
+- **domain:** memory, processes, Activity Monitor, system resources, ps, top, sandbox
+- **anti-domain:** code editing, testing, git, LEARNINGS authoring
+- **reasoning:** Agent friction — gave canned advice instead of attempting inspection first. User had to correct. Sandbox limitation needs either a workaround (allowlist) or a standard fallback (screenshot request).
+
+[^L10a]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/a855ea96-85d5-49b3-b752-ee58b27ddc5a.jsonl:L108` (user: "my activity monitor always sits at 20gb out of 24 gb")
+
+[^L10b]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/a855ea96-85d5-49b3-b752-ee58b27ddc5a.jsonl:L118-L128` (agent: top/ps blocked by sandbox)
+
+[^L10c]: `~/.claude/projects/-Users-wesleyfrederick-Documents-ObsidianVault-0-SoftwareDevelopment-claude-devtools/a855ea96-85d5-49b3-b752-ee58b27ddc5a.jsonl:L138` (agent: "sandbox blocks them because they expose system-wide process information")
