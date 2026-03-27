@@ -52,6 +52,74 @@ git push origin fix/my-contribution
 # then open PR against matt1398/claude-devtools via GitHub
 ```
 
+## Running the App
+
+### Option 1: Electron Desktop App (full features)
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Opens a native desktop window with hot reload. Full feature set including native file watchers, SSH remote sessions, auto-updater, multi-pane layout.
+
+**Tear down:** Ctrl+C in the terminal, or quit the app window.
+
+### Option 2: Standalone Web Server (no Electron needed)
+
+Runs as a plain Node.js HTTP server. Same UI served in the browser.
+
+**Dev mode (build + run):**
+```bash
+pnpm install
+pnpm standalone:build
+pnpm standalone:start
+```
+
+Open http://localhost:3456 in your browser.
+
+**Production mode (pre-built):**
+```bash
+node dist-standalone/index.cjs
+```
+
+**Tear down:** Ctrl+C, or send SIGTERM/SIGINT. The server handles graceful shutdown.
+
+### Option 3: Docker
+
+```bash
+docker compose up
+```
+
+Open http://localhost:3456.
+
+Or manually:
+```bash
+docker build -t claude-devtools .
+docker run -p 3456:3456 -v ~/.claude:/data/.claude:ro claude-devtools
+```
+
+**Tear down:** `docker compose down` or `docker stop <container>`.
+
+### Environment Variables (standalone/Docker only)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `CLAUDE_ROOT` | `~/.claude` | Path to .claude data directory |
+| `HOST` | `0.0.0.0` | Bind address |
+| `PORT` | `3456` | Listen port |
+| `CORS_ORIGIN` | `*` | CORS origin policy |
+
+### Electron vs Standalone Differences
+
+| Feature | Electron | Standalone |
+|---------|----------|------------|
+| File watching | Native (instant) | SSE over HTTP (slight delay) |
+| SSH remote sessions | Yes | No |
+| Auto-updater | Yes | No |
+| Multi-pane drag & drop | Yes | Yes |
+| All other features | Yes | Yes |
+
 ## Rules
 1. Keep main clean — only upstream merges, no local commits
 2. Rebase explore onto main after each upstream sync
