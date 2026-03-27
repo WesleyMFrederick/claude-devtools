@@ -1,0 +1,59 @@
+# claude-devtools Fork Maintenance
+
+## Remote Setup
+- `origin` = WesleyMFrederick/claude-devtools (your fork)
+- `upstream` = matt1398/claude-devtools (original repo)
+
+## Branches
+- `main` — mirrors upstream/main. Never commit directly to main.
+- `explore` — your customizations (skills, hooks, docs, traces)
+
+## Sync main with upstream
+
+```bash
+git fetch upstream
+git checkout main
+git merge upstream/main
+git push origin main
+```
+
+## Update explore with latest upstream changes
+
+```bash
+# After syncing main (above):
+git checkout explore
+git rebase main
+git push origin explore --force-with-lease
+```
+
+If rebase conflicts occur: resolve each file, `git add <file>`, then `git rebase --continue`.
+
+## Add your own changes
+
+Always work on `explore` (or feature branches off explore):
+
+```bash
+git checkout explore
+# make changes
+git add <files>
+git commit -m "your message"
+git push origin explore
+```
+
+## Contribute back to upstream
+
+Create a PR from a clean branch based on main (not explore):
+
+```bash
+git checkout main
+git checkout -b fix/my-contribution
+# make changes
+git push origin fix/my-contribution
+# then open PR against matt1398/claude-devtools via GitHub
+```
+
+## Rules
+1. Keep main clean — only upstream merges, no local commits
+2. Rebase explore onto main after each upstream sync
+3. Use --force-with-lease (not --force) when pushing rebased explore
+4. Contributions to upstream go on separate branches off main
