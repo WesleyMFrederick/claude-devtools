@@ -139,6 +139,7 @@ const electronAPI: ElectronAPI = {
     ipcRenderer.invoke('search-sessions', projectId, query, maxResults),
   searchAllProjects: (query: string, maxResults?: number) =>
     ipcRenderer.invoke('search-all-projects', query, maxResults),
+  findSessionById: (sessionId: string) => ipcRenderer.invoke('find-session-by-id', sessionId),
   getSessionDetail: (projectId: string, sessionId: string) =>
     ipcRenderer.invoke('get-session-detail', projectId, sessionId),
   getSessionMetrics: (projectId: string, sessionId: string) =>
@@ -172,8 +173,7 @@ const electronAPI: ElectronAPI = {
     ipcRenderer.invoke('read-mentioned-file', absolutePath, projectRoot, maxTokens),
 
   // Agent config reading
-  readAgentConfigs: (projectRoot: string) =>
-    ipcRenderer.invoke('read-agent-configs', projectRoot),
+  readAgentConfigs: (projectRoot: string) => ipcRenderer.invoke('read-agent-configs', projectRoot),
 
   // Notifications API
   notifications: {

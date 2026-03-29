@@ -16,6 +16,7 @@
  */
 
 import {
+  type FindSessionByIdResult,
   type PaginatedSessionsResult,
   type Project,
   type RepositoryGroup,
@@ -1150,6 +1151,44 @@ export class ProjectScanner {
     } catch (error) {
       logger.error('Error searching all projects:', error);
       return { results: [], totalMatches: 0, sessionsSearched: 0, query };
+    }
+  }
+
+  /**
+   * Finds a session by its UUID across all projects.
+   * Scans all project directories for a matching .jsonl file.
+   *
+   * @param sessionId - UUID of the session to find
+   * @returns FindSessionByIdResult with projectId and session metadata if found
+   */
+  async findSessionById(sessionId: string): Promise<FindSessionByIdResult> {
+    try {
+      if (!(await this.fsProvider.exists(this.projectsDir))) {
+        return { found: false };
+      }
+
+      const entries = await this.fsProvider.readdir(this.projectsDir);
+      const projectDirs = entries.filter(
+        (entry) => entry.isDirectory() && isValidEncodedPath(entry.name)
+      );
+
+      // Check each project directory for the session file
+      for (const dir of projectDirs) {
+        const sessionPath = buildSessionPath(this.projectsDir, dir.name, sessionId);
+        if (await this.fsProvider.exists(sessionPath)) {
+          const session = await this.getSessionWithOptions(dir.name, sessionId, {
+            metadataLevel: 'light',
+          });
+          if (session) {
+            return { found: true, projectId: dir.name, session };
+          }
+        }
+      }
+
+      return { found: false };
+    } catch (error) {
+      logger.error(`Error finding session by ID ${sessionId}:`, error);
+      return { found: false };
     }
   }
 

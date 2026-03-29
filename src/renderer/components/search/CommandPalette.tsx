@@ -30,6 +30,17 @@ import {
 } from 'lucide-react';
 
 import type { RepositoryGroup, SearchResult } from '@renderer/types/data';
+import type { FindSessionByIdResult } from '@shared/types';
+
+// =============================================================================
+// UUID Detection
+// =============================================================================
+
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function isUUID(value: string): boolean {
+  return UUID_REGEX.test(value.trim());
+}
 
 // =============================================================================
 // Search Mode Type
@@ -183,6 +194,7 @@ export const CommandPalette = (): React.JSX.Element | null => {
   const [totalMatches, setTotalMatches] = useState(0);
   const [searchIsPartial, setSearchIsPartial] = useState(false);
   const [globalSearchEnabled, setGlobalSearchEnabled] = useState(false);
+  const [sessionIdMatch, setSessionIdMatch] = useState<FindSessionByIdResult | null>(null);
   const latestSearchRequestRef = useRef(0);
 
   // Determine search mode based on whether a project is selected OR global search is enabled
@@ -235,11 +247,51 @@ export const CommandPalette = (): React.JSX.Element | null => {
       setTotalMatches(0);
       setSearchIsPartial(false);
       setGlobalSearchEnabled(false);
+      setSessionIdMatch(null);
     }
   }, [commandPaletteOpen]);
 
-  // Search sessions with debounce (only in session mode)
+  // Detect UUID input and look up session by ID
   useEffect(() => {
+    if (!commandPaletteOpen || !isUUID(query)) {
+      setSessionIdMatch(null);
+      return;
+    }
+
+    const timeoutId = setTimeout(async () => {
+      const requestId = latestSearchRequestRef.current + 1;
+      latestSearchRequestRef.current = requestId;
+      setLoading(true);
+      try {
+        const result = await api.findSessionById(query.trim());
+        if (latestSearchRequestRef.current !== requestId) return;
+        setSessionIdMatch(result);
+        // Clear text search results when in UUID mode
+        setSessionResults([]);
+        setTotalMatches(0);
+        setSearchIsPartial(false);
+        setSelectedIndex(0);
+      } catch (error) {
+        if (latestSearchRequestRef.current !== requestId) return;
+        logger.error('Session ID lookup error:', error);
+        setSessionIdMatch(null);
+      } finally {
+        if (latestSearchRequestRef.current === requestId) {
+          setLoading(false);
+        }
+      }
+    }, 200);
+
+    return () => clearTimeout(timeoutId);
+  }, [query, commandPaletteOpen]);
+
+  // Search sessions with debounce (only in session mode, skip when UUID detected)
+  useEffect(() => {
+    // Skip text search when query is a UUID (handled by the UUID lookup above)
+    if (isUUID(query)) {
+      return;
+    }
+
     // Only clear results when query is too short or palette is closed
     if (!commandPaletteOpen || query.trim().length < 2) {
       setSessionResults([]);
@@ -300,6 +352,14 @@ export const CommandPalette = (): React.JSX.Element | null => {
     [closeCommandPalette, selectRepository]
   );
 
+  // Handle session ID match click (direct navigation)
+  const handleSessionIdMatchClick = useCallback(() => {
+    if (sessionIdMatch?.found && sessionIdMatch.projectId && sessionIdMatch.session) {
+      closeCommandPalette();
+      navigateToSession(sessionIdMatch.projectId, sessionIdMatch.session.id, false);
+    }
+  }, [closeCommandPalette, navigateToSession, sessionIdMatch]);
+
   // Handle session result click
   const handleSessionResultClick = useCallback(
     (result: SearchResult) => {
@@ -354,17 +414,24 @@ export const CommandPalette = (): React.JSX.Element | null => {
         return;
       }
 
-      if (e.key === 'Enter' && resultsCount > 0) {
+      if (e.key === 'Enter') {
         e.preventDefault();
-        if (searchMode === 'projects') {
-          const selected = filteredProjects[selectedIndex];
-          if (selected) {
-            handleProjectClick(selected);
-          }
-        } else {
-          const selected = sessionResults[selectedIndex];
-          if (selected) {
-            handleSessionResultClick(selected);
+        // Handle UUID session ID match
+        if (sessionIdMatch?.found) {
+          handleSessionIdMatchClick();
+          return;
+        }
+        if (resultsCount > 0) {
+          if (searchMode === 'projects') {
+            const selected = filteredProjects[selectedIndex];
+            if (selected) {
+              handleProjectClick(selected);
+            }
+          } else {
+            const selected = sessionResults[selectedIndex];
+            if (selected) {
+              handleSessionResultClick(selected);
+            }
           }
         }
       }
@@ -376,8 +443,10 @@ export const CommandPalette = (): React.JSX.Element | null => {
       searchMode,
       filteredProjects,
       sessionResults,
+      sessionIdMatch,
       handleProjectClick,
       handleSessionResultClick,
+      handleSessionIdMatchClick,
     ]
   );
 
@@ -427,7 +496,12 @@ export const CommandPalette = (): React.JSX.Element | null => {
         <div className="bg-surface-raised/50 border-b border-border px-4 py-2">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-              {searchMode === 'projects' ? (
+              {isUUID(query) ? (
+                <>
+                  <Search className="size-3.5 text-green-400" />
+                  <span className="text-xs text-green-400">Session ID lookup</span>
+                </>
+              ) : searchMode === 'projects' ? (
                 <>
                   <FolderGit2 className="size-3.5 text-text-muted" />
                   <span className="text-xs text-text-muted">Search projects</span>
@@ -480,7 +554,9 @@ export const CommandPalette = (): React.JSX.Element | null => {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder={
-              searchMode === 'projects' ? 'Search projects...' : 'Search conversations...'
+              searchMode === 'projects'
+                ? 'Search projects or paste session ID...'
+                : 'Search conversations or paste session ID...'
             }
             className="placeholder:text-text-muted/50 flex-1 bg-transparent text-base text-text focus:outline-none"
           />
@@ -495,7 +571,54 @@ export const CommandPalette = (): React.JSX.Element | null => {
 
         {/* Results */}
         <div className="max-h-[50vh] overflow-y-auto">
-          {searchMode === 'projects' ? (
+          {isUUID(query) ? (
+            // Session ID lookup result
+            loading ? null : sessionIdMatch?.found && sessionIdMatch.session ? (
+              <div className="py-2">
+                <button
+                  onClick={handleSessionIdMatchClick}
+                  className="w-full bg-surface-raised px-4 py-3 text-left transition-colors"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 shrink-0 text-green-400">
+                      <FileText className="size-4" />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1 flex items-center gap-2">
+                        <FolderGit2 className="size-3 text-blue-400" />
+                        <span className="truncate text-xs font-medium text-blue-400">
+                          {repositoryGroups.find((r) =>
+                            r.worktrees.some((w) => w.id === sessionIdMatch.projectId)
+                          )?.name ?? sessionIdMatch.projectId}
+                        </span>
+                      </div>
+                      <div className="text-sm text-text">
+                        {sessionIdMatch.session.firstMessage
+                          ? sessionIdMatch.session.firstMessage.slice(0, 100)
+                          : 'Untitled session'}
+                      </div>
+                      <div className="mt-1 flex items-center gap-3 text-xs text-text-muted">
+                        <span>{sessionIdMatch.session.messageCount} messages</span>
+                        <span>·</span>
+                        <span>
+                          {formatDistanceToNow(new Date(sessionIdMatch.session.createdAt), {
+                            addSuffix: true,
+                          })}
+                        </span>
+                      </div>
+                      <div className="text-text-muted/60 mt-1 font-mono text-[10px]">
+                        {query.trim()}
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            ) : (
+              <div className="px-4 py-8 text-center text-sm text-text-muted">
+                No session found with ID &ldquo;{query.trim().slice(0, 8)}...&rdquo;
+              </div>
+            )
+          ) : searchMode === 'projects' ? (
             // Project search results
             filteredProjects.length === 0 ? (
               <div className="px-4 py-8 text-center text-sm text-text-muted">

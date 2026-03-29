@@ -261,6 +261,18 @@ export interface SearchSessionsResult {
   isPartial?: boolean;
 }
 
+/**
+ * Result of finding a session by its ID across all projects.
+ */
+export interface FindSessionByIdResult {
+  /** Whether the session was found */
+  found: boolean;
+  /** Project ID containing the session */
+  projectId?: string;
+  /** Session metadata */
+  session?: Session;
+}
+
 // =============================================================================
 // Pagination Types
 // =============================================================================

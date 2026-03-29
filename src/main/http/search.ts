@@ -7,7 +7,12 @@
 
 import { createLogger } from '@shared/utils/logger';
 
-import { coerceSearchMaxResults, validateProjectId, validateSearchQuery } from '../ipc/guards';
+import {
+  coerceSearchMaxResults,
+  validateProjectId,
+  validateSearchQuery,
+  validateSessionId,
+} from '../ipc/guards';
 
 import type { HttpServices } from './index';
 import type { FastifyInstance } from 'fastify';
@@ -73,6 +78,23 @@ export function registerSearchRoutes(app: FastifyInstance, services: HttpService
     } catch (error) {
       logger.error('Error in GET global search:', error);
       return { results: [], totalMatches: 0, sessionsSearched: 0, query };
+    }
+  });
+
+  app.get<{
+    Params: { sessionId: string };
+  }>('/api/sessions/:sessionId/locate', async (request) => {
+    try {
+      const validated = validateSessionId(request.params.sessionId);
+      if (!validated.valid) {
+        logger.error(`GET locate session rejected: ${validated.error ?? 'Invalid sessionId'}`);
+        return { found: false };
+      }
+
+      return await services.projectScanner.findSessionById(validated.value!);
+    } catch (error) {
+      logger.error(`Error in GET locate session ${request.params.sessionId}:`, error);
+      return { found: false };
     }
   });
 }

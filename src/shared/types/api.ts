@@ -17,6 +17,7 @@ import type { WaterfallData } from './visualization';
 import type {
   ConversationGroup,
   FileChangeEvent,
+  FindSessionByIdResult,
   PaginatedSessionsResult,
   Project,
   RepositoryGroup,
@@ -337,6 +338,7 @@ export interface ElectronAPI {
     maxResults?: number
   ) => Promise<SearchSessionsResult>;
   searchAllProjects: (query: string, maxResults?: number) => Promise<SearchSessionsResult>;
+  findSessionById: (sessionId: string) => Promise<FindSessionByIdResult>;
   getSessionDetail: (projectId: string, sessionId: string) => Promise<SessionDetail | null>;
   getSessionMetrics: (projectId: string, sessionId: string) => Promise<SessionMetrics | null>;
   getWaterfallData: (projectId: string, sessionId: string) => Promise<WaterfallData | null>;
