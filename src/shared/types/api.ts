@@ -18,6 +18,7 @@ import type {
   ConversationGroup,
   FileChangeEvent,
   FindSessionByIdResult,
+  FindSessionsByPartialIdResult,
   PaginatedSessionsResult,
   Project,
   RepositoryGroup,
@@ -339,6 +340,7 @@ export interface ElectronAPI {
   ) => Promise<SearchSessionsResult>;
   searchAllProjects: (query: string, maxResults?: number) => Promise<SearchSessionsResult>;
   findSessionById: (sessionId: string) => Promise<FindSessionByIdResult>;
+  findSessionsByPartialId: (fragment: string) => Promise<FindSessionsByPartialIdResult>;
   getSessionDetail: (projectId: string, sessionId: string) => Promise<SessionDetail | null>;
   getSessionMetrics: (projectId: string, sessionId: string) => Promise<SessionMetrics | null>;
   getWaterfallData: (projectId: string, sessionId: string) => Promise<WaterfallData | null>;

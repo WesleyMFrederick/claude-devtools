@@ -273,6 +273,16 @@ export interface FindSessionByIdResult {
   session?: Session;
 }
 
+/**
+ * Result of finding sessions by a partial ID fragment across all projects.
+ */
+export interface FindSessionsByPartialIdResult {
+  /** Whether any sessions were found */
+  found: boolean;
+  /** Matching sessions with their project IDs, sorted by recency */
+  results: { projectId: string; session: Session }[];
+}
+
 // =============================================================================
 // Pagination Types
 // =============================================================================

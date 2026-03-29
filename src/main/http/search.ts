@@ -97,4 +97,21 @@ export function registerSearchRoutes(app: FastifyInstance, services: HttpService
       return { found: false };
     }
   });
+
+  app.get<{
+    Params: { fragment: string };
+  }>('/api/sessions/search-by-id/:fragment', async (request) => {
+    try {
+      const fragment = request.params.fragment;
+      if (!fragment || fragment.length < 3 || !/^[0-9a-f][0-9a-f-]+$/i.test(fragment)) {
+        logger.error('GET search-by-id rejected: invalid fragment');
+        return { found: false, results: [] };
+      }
+
+      return await services.projectScanner.findSessionsByPartialId(fragment);
+    } catch (error) {
+      logger.error(`Error in GET search-by-id ${request.params.fragment}:`, error);
+      return { found: false, results: [] };
+    }
+  });
 }

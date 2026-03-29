@@ -140,6 +140,8 @@ const electronAPI: ElectronAPI = {
   searchAllProjects: (query: string, maxResults?: number) =>
     ipcRenderer.invoke('search-all-projects', query, maxResults),
   findSessionById: (sessionId: string) => ipcRenderer.invoke('find-session-by-id', sessionId),
+  findSessionsByPartialId: (fragment: string) =>
+    ipcRenderer.invoke('find-sessions-by-partial-id', fragment),
   getSessionDetail: (projectId: string, sessionId: string) =>
     ipcRenderer.invoke('get-session-detail', projectId, sessionId),
   getSessionMetrics: (projectId: string, sessionId: string) =>

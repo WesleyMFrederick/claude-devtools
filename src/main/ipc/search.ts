@@ -8,7 +8,11 @@
 import { createLogger } from '@shared/utils/logger';
 import { type IpcMain, type IpcMainInvokeEvent } from 'electron';
 
-import { type FindSessionByIdResult, type SearchSessionsResult } from '../types';
+import {
+  type FindSessionByIdResult,
+  type FindSessionsByPartialIdResult,
+  type SearchSessionsResult,
+} from '../types';
 
 import {
   coerceSearchMaxResults,
@@ -38,6 +42,7 @@ export function registerSearchHandlers(ipcMain: IpcMain): void {
   ipcMain.handle('search-sessions', handleSearchSessions);
   ipcMain.handle('search-all-projects', handleSearchAllProjects);
   ipcMain.handle('find-session-by-id', handleFindSessionById);
+  ipcMain.handle('find-sessions-by-partial-id', handleFindSessionsByPartialId);
 
   logger.info('Search handlers registered');
 }
@@ -49,6 +54,7 @@ export function removeSearchHandlers(ipcMain: IpcMain): void {
   ipcMain.removeHandler('search-sessions');
   ipcMain.removeHandler('search-all-projects');
   ipcMain.removeHandler('find-session-by-id');
+  ipcMain.removeHandler('find-sessions-by-partial-id');
 
   logger.info('Search handlers removed');
 }
@@ -137,5 +143,34 @@ async function handleFindSessionById(
   } catch (error) {
     logger.error(`Error in find-session-by-id for ${sessionId}:`, error);
     return { found: false };
+  }
+}
+
+/** Only hex digits and dashes are valid session ID fragments */
+const SESSION_FRAGMENT_PATTERN = /^[0-9a-f][0-9a-f-]+$/i;
+
+/**
+ * Handler for 'find-sessions-by-partial-id' IPC call.
+ * Finds sessions whose IDs contain the given fragment.
+ */
+async function handleFindSessionsByPartialId(
+  _event: IpcMainInvokeEvent,
+  fragment: string
+): Promise<FindSessionsByPartialIdResult> {
+  try {
+    if (
+      typeof fragment !== 'string' ||
+      fragment.length < 3 ||
+      !SESSION_FRAGMENT_PATTERN.test(fragment)
+    ) {
+      logger.error(`find-sessions-by-partial-id rejected: invalid fragment`);
+      return { found: false, results: [] };
+    }
+
+    const { projectScanner } = registry.getActive();
+    return await projectScanner.findSessionsByPartialId(fragment);
+  } catch (error) {
+    logger.error(`Error in find-sessions-by-partial-id for ${fragment}:`, error);
+    return { found: false, results: [] };
   }
 }
