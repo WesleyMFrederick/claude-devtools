@@ -1164,11 +1164,7 @@ export class ProjectScanner {
    */
   async findSessionById(sessionId: string): Promise<FindSessionByIdResult> {
     try {
-      if (!(await this.fsProvider.exists(this.projectsDir))) {
-        return { found: false };
-      }
-
-      const entries = await this.fsProvider.readdir(this.projectsDir);
+      const entries = await this.fsProvider.readdir(this.projectsDir).catch(() => []);
       const projectDirs = entries.filter(
         (entry) => entry.isDirectory() && isValidEncodedPath(entry.name)
       );
@@ -1210,14 +1206,13 @@ export class ProjectScanner {
    * @param fragment - Partial session ID fragment (min 3 chars, hex-dash chars only)
    * @returns FindSessionsByPartialIdResult with matching sessions sorted by createdAt desc
    */
-  async findSessionsByPartialId(fragment: string): Promise<FindSessionsByPartialIdResult> {
+  async findSessionsByPartialId(
+    fragment: string,
+    maxResults: number = 50
+  ): Promise<FindSessionsByPartialIdResult> {
     try {
-      if (!(await this.fsProvider.exists(this.projectsDir))) {
-        return { found: false, results: [] };
-      }
-
       const lowerFragment = fragment.toLowerCase();
-      const entries = await this.fsProvider.readdir(this.projectsDir);
+      const entries = await this.fsProvider.readdir(this.projectsDir).catch(() => []);
       const projectDirs = entries.filter(
         (entry) => entry.isDirectory() && isValidEncodedPath(entry.name)
       );
@@ -1238,12 +1233,14 @@ export class ProjectScanner {
         }
       );
 
-      // Flatten and load session metadata for all matches
+      // Flatten and cap filename matches before loading metadata
       const allMatches: { projectId: string; sessionId: string }[] = [];
       for (const { projectId, sessionIds } of perProjectMatches) {
         for (const sessionId of sessionIds) {
           allMatches.push({ projectId, sessionId });
+          if (allMatches.length >= maxResults) break;
         }
+        if (allMatches.length >= maxResults) break;
       }
 
       if (allMatches.length === 0) {

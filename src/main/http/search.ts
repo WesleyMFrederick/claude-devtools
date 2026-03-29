@@ -6,6 +6,7 @@
  */
 
 import { createLogger } from '@shared/utils/logger';
+import { isSessionIdFragment } from '@shared/utils/sessionIdValidator';
 
 import {
   coerceSearchMaxResults,
@@ -103,7 +104,7 @@ export function registerSearchRoutes(app: FastifyInstance, services: HttpService
   }>('/api/sessions/search-by-id/:fragment', async (request) => {
     try {
       const fragment = request.params.fragment;
-      if (!fragment || fragment.length < 3 || !/^[0-9a-f][0-9a-f-]+$/i.test(fragment)) {
+      if (!fragment || !isSessionIdFragment(fragment)) {
         logger.error('GET search-by-id rejected: invalid fragment');
         return { found: false, results: [] };
       }

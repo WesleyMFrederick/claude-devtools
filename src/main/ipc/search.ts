@@ -6,6 +6,7 @@
  */
 
 import { createLogger } from '@shared/utils/logger';
+import { isSessionIdFragment } from '@shared/utils/sessionIdValidator';
 import { type IpcMain, type IpcMainInvokeEvent } from 'electron';
 
 import {
@@ -146,9 +147,6 @@ async function handleFindSessionById(
   }
 }
 
-/** Only hex digits and dashes are valid session ID fragments */
-const SESSION_FRAGMENT_PATTERN = /^[0-9a-f][0-9a-f-]+$/i;
-
 /**
  * Handler for 'find-sessions-by-partial-id' IPC call.
  * Finds sessions whose IDs contain the given fragment.
@@ -158,11 +156,7 @@ async function handleFindSessionsByPartialId(
   fragment: string
 ): Promise<FindSessionsByPartialIdResult> {
   try {
-    if (
-      typeof fragment !== 'string' ||
-      fragment.length < 3 ||
-      !SESSION_FRAGMENT_PATTERN.test(fragment)
-    ) {
+    if (typeof fragment !== 'string' || !isSessionIdFragment(fragment)) {
       logger.error(`find-sessions-by-partial-id rejected: invalid fragment`);
       return { found: false, results: [] };
     }

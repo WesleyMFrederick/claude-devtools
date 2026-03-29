@@ -16,6 +16,7 @@ import { createLogger } from '@shared/utils/logger';
 import { useShallow } from 'zustand/react/shallow';
 
 const logger = createLogger('Component:CommandPalette');
+import { isSessionIdFragment, isUUID } from '@shared/utils/sessionIdValidator';
 import { formatDistanceToNow } from 'date-fns';
 import {
   Bot,
@@ -31,26 +32,6 @@ import {
 
 import type { RepositoryGroup, SearchResult } from '@renderer/types/data';
 import type { FindSessionByIdResult, FindSessionsByPartialIdResult } from '@shared/types';
-
-// =============================================================================
-// UUID Detection
-// =============================================================================
-
-const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
-function isUUID(value: string): boolean {
-  return UUID_REGEX.test(value.trim());
-}
-
-/**
- * Detects a session ID fragment: 3+ hex-dash chars that aren't a full UUID.
- */
-const SESSION_FRAGMENT_REGEX = /^[0-9a-f][0-9a-f-]{2,}$/i;
-
-function isSessionIdFragment(value: string): boolean {
-  const trimmed = value.trim();
-  return trimmed.length >= 3 && !isUUID(trimmed) && SESSION_FRAGMENT_REGEX.test(trimmed);
-}
 
 // =============================================================================
 // Search Mode Type
