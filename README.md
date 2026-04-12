@@ -20,9 +20,6 @@
 <br />
 
 <p align="center">
-  <a href="https://claude-dev.tools">
-    <img src="https://img.shields.io/badge/Website-claude--dev.tools-171717?logo=googlechrome&logoColor=white&style=flat" alt="Website" height="30" />
-  </a>&nbsp;&nbsp;
   <a href="https://github.com/matt1398/claude-devtools/releases/latest">
     <img src="https://img.shields.io/badge/macOS-Download-black?logo=apple&logoColor=white&style=flat" alt="Download for macOS" height="30" />
   </a>&nbsp;&nbsp;
