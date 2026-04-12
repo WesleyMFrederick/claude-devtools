@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "consumer_repo": "claude-devtools",
+  "docs_repo_env": "DOCS_REPO_PATH",
+  "docs_repo_default": "../0-documents/markdown-documents",
+  "mappings": [
+    {
+      "source": "repository-documents/claude-devtools/design-docs/",
+      "alias": "design-docs/",
+      "description": "Design documents for claude-devtools"
+    }
+  ]
+}

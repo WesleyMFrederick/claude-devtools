@@ -45,6 +45,9 @@ temp/
 .claude/agent-memory/*
 
 
+# Symlinked shared content
+design-docs/
+
 eslint-fix/
 remotion/*claude-code-transcripts/
 claude-code-transcripts/
