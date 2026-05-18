@@ -198,9 +198,9 @@ Trace **bidirectionally** — forward from JSONL ingest and backward from the re
 ---
 
 ## 6. Research Findings
-%% *Last Modified: 05/17/26 17:10:23* %%
+%% *Last Modified: 05/17/26 18:40:50* %%
 
-`Research status: COMPLETE`
+`Research status: IN PROGRESS (RQ-9 blast radius classification pending — parser layer + remaining consumer files not yet classified)`
 
 > Delegated agent: append all findings below this line. One subsection per RQ (RQ-1 … RQ-7). Do not modify any section above.
 
@@ -234,7 +234,7 @@ When `parseMessageType` returns `null`, `parseChatHistoryEntry` returns `null` a
 ---
 
 ### RQ-2 — Parsing / classification (HIGHEST RISK)
-%% *Last Modified: 05/17/26 17:10:23* %%
+%% *Last Modified: 05/17/26 18:41:04* %%
 
 **Files:** `src/main/utils/jsonl.ts`, `src/main/services/parsing/MessageClassifier.ts`
 
@@ -252,9 +252,9 @@ When `parseMessageType` returns `null`, `parseChatHistoryEntry` returns `null` a
 
 **Single injection point for attachment recognition:**
 
-The minimal injection point is `parseChatHistoryEntry` in `src/main/utils/jsonl.ts`, specifically before the `isConversationalEntry` check at line 134. A new early-return branch should handle `entry.type === 'attachment'` and convert `hook_additional_context` records into a new `ParsedHookEventMessage` (or into an extended `ParsedMessage` with additional fields). The `parseMessageType` function at `jsonl.ts:199-216` also needs `'attachment'` added to return the new type.
+The minimal injection point is `parseChatHistoryEntry` in `src/main/utils/jsonl.ts`, specifically before the `isConversationalEntry` check at line 134. A new early-return branch should handle `entry.type === 'attachment'` and convert **all** attachment records (every `attachment.type` subtype) into a new `ParsedAttachmentMessage`. The `parseMessageType` function at `jsonl.ts:199-216` also needs `'attachment'` added to return the new type.
 
-**Important nuance discovered:** `type:"attachment"` records contain multiple `attachment.type` subtypes beyond `hook_additional_context`. The 48 records in the sample break down as: `hook_additional_context` (18), `hook_success` (6), `hook_cancelled` (5), `nested_memory` (5), `task_reminder` (5), `edited_text_file` (2), `skill_listing` (2), and one each of `command_permissions`, `deferred_tools_delta`, `hook_blocking_error`, `mcp_instructions_delta`, `queued_command`. The injection point must gate on `attachment.type === 'hook_additional_context'` (and optionally `hook_success`, `hook_cancelled`, `hook_blocking_error`) to avoid rendering every attachment subtype. [OBS: sample JSONL probe via jq]
+**Subtypes enumerated:** `type:"attachment"` records carry 12 distinct `attachment.type` values. The 48 records in the sample break down as: `hook_additional_context` (18), `hook_success` (6), `hook_cancelled` (5), `nested_memory` (5), `task_reminder` (5), `edited_text_file` (2), `skill_listing` (2), and one each of `command_permissions`, `deferred_tools_delta`, `hook_blocking_error`, `mcp_instructions_delta`, `queued_command`. **Scope (§1, user-confirmed):** Display ALL subtypes — no exclusions, no allow-list. The injection point passes through every `attachment.type` value; per-subtype content extraction is handled at the display layer (see RQ-8). [OBS: sample JSONL probe via jq]
 
 **RESOLVED**
 
@@ -297,7 +297,7 @@ export function isParsedHookEventMessage(msg: ParsedMessage): boolean {
 ---
 
 ### RQ-4 — Chunk building / item ordering
-%% *Last Modified: 05/17/26 17:10:23* %%
+%% *Last Modified: 05/17/26 18:41:24* %%
 
 **Files:** `src/main/services/analysis/ChunkBuilder.ts`, `src/main/services/analysis/SemanticStepExtractor.ts`
 
@@ -309,7 +309,7 @@ export function isParsedHookEventMessage(msg: ParsedMessage): boolean {
 
 [F-ID] There are two viable insertion strategies:
 
-**Strategy A (preferred — simplest):** Route attachment records with `attachment.type === 'hook_additional_context'` into the existing `'ai'` category in `MessageClassifier`. This means they land in the `aiBuffer` in `ChunkBuilder` and are passed to `buildAIChunkFromBuffer`. Then `SemanticStepExtractor` must be extended to extract a new `'hook_event'` `SemanticStepType` from messages of type `'attachment'`. The timestamp-based sort in `SemanticStepExtractor.ts:208` will then automatically place hook items at the correct position relative to other steps. No new chunk type needed. **Ordering key is `timestamp`.**
+**Strategy A (preferred — simplest):** Route **all** attachment records (every `attachment.type` subtype — scope per §1) into the existing `'ai'` category in `MessageClassifier`. This means they land in the `aiBuffer` in `ChunkBuilder` and are passed to `buildAIChunkFromBuffer`. Then `SemanticStepExtractor` must be extended to extract a new `'hook_event'` `SemanticStepType` from messages of type `'attachment'`. The timestamp-based sort in `SemanticStepExtractor.ts:208` will then automatically place hook items at the correct position relative to other steps. No new chunk type needed. **Ordering key is `timestamp`.**
 
 **Strategy B (parallel path):** Create a new `MessageCategory` `'hook'` and produce new `HookChunk` items. This is heavier and unnecessary since hook events are logically part of the AI response stream.
 
@@ -430,25 +430,6 @@ No `'hook'` variant exists. [OBS:groups.ts:250-264]
 **RESOLVED**
 
 ---
-
-### Pipeline Trace Summary (complete entry → exit)
-%% *Last Modified: 05/17/26 18:06:12* %%
-
-[F-ID] The complete 6-layer pipeline for hook event display, with injection points at each layer:
-
-| Layer | File | Current behavior | Injection point |
-|---|---|---|---|
-| 1. JSONL type | `src/main/types/jsonl.ts:212` | `'attachment'` not in `ChatHistoryEntry` union | Add `AttachmentEntry` interface + add to union |
-| 2. Parser | `src/main/utils/jsonl.ts:199-216` | `'attachment'` hits `default: return null` in `parseMessageType` | Add `case 'attachment': return 'attachment'` + handle in `parseChatHistoryEntry` |
-| 3. Classifier | `src/main/services/parsing/MessageClassifier.ts:42-65` | Never reached (records dropped) | Add `isParsedHookEventMessage` guard; route to `'ai'` category |
-| 4. Chunk builder | `src/main/services/analysis/ChunkBuilder.ts:131-133` | Never reached | No change needed if category = `'ai'`; hook messages join `aiBuffer` |
-| 5. Semantic step extractor | `src/main/services/analysis/SemanticStepExtractor.ts:33` | Never reached | Add new branch in `for (msg of chunk.responses)` loop; emit `SemanticStep` with new type `'hook_event'` |
-| 6a. Display item builder | `src/renderer/utils/displayItemBuilder.ts:149` | `'hook_event'` case missing from switch | Add `case 'hook_event':` emitting `{ type: 'hook', hookEvent, hookName, content, timestamp, tokenCount }` |
-| 6b. Display item union | `src/renderer/types/groups.ts:250` | No `'hook'` variant | Add `'hook'` member to `AIGroupDisplayItem` union |
-| 6c. Display item list | `src/renderer/components/chat/DisplayItemList.tsx:104` | No `case 'hook':` | Add `case 'hook':` dispatching to new `HookItem` |
-| 6d. Item component | (new file) | Does not exist | Create `src/renderer/components/chat/items/HookItem.tsx` mirroring `SlashItem.tsx` |
-
-**New type also required:** Add `'hook_event'` to `SemanticStepType` union in `src/main/types/chunks.ts:226`.
 
 ### RQ-8 — Per-subtype payload shapes (which field holds displayable content)
 %% *Last Modified: 05/17/26 18:25:19* %%
