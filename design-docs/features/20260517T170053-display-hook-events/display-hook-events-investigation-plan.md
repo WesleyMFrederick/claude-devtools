@@ -62,11 +62,12 @@
 ---
 
 ## 1. Problem Understanding (Phase 1 output)
-%% *Last Modified: 05/17/26 17:02:50* %%
+%% *Last Modified: 05/17/26 17:50:43* %%
 
-- **Parent Unknown (U0):** Make Claude Code hook events from JSONL session transcripts visible in the claude-devtools timeline, rendered with the same item affordances (icon, expand/collapse, per-item token count) as existing display items.
-  - source: stated (user prompt)
+- **Parent Unknown (U0) — CORRECTED 2026-05-17 (user steering, mid-session):** Make **every `type:"attachment"` context injection** from JSONL session transcripts visible in the claude-devtools timeline — hook events **and** nested memory, task reminders, skill listings, MCP instructions, and the rest — rendered with the same item affordances (icon, expand/collapse, per-item token count) as existing display items. The end goal is: the user can see *all the extra material being fed into Claude's context* that the timeline does not currently show. "Display hookEvent" was one *means*; this is the *end*.
+  - source: stated as "hookEvent" (user prompt) → broadened by explicit user clarification mid-session: "the goal is for me to be able to see all the extra stuff being sent to claude. so nested memory, task reminders, would also be good to include"
   - confidence: high
+  - **Scope-correction impact:** This *simplifies* the build. §6 RQ-2 already enumerated all 12+ `attachment` subtypes; RQ-7 already recommends a **catch-all render path, not a narrow `hook_additional_context` gate**. The corrected scope = display all `attachment` records as a generic "context injection" item, differentiated by `attachment.type` (label/icon). No allow-list to maintain. Every §6 injection point stays valid; only the gate condition broadens (from one subtype to "any attachment").
 
 - **Auxiliary Unknowns (the "additional tasks for Phase 1" — these are the research questions, see §4):**
   - **U1:** Where in the parse→classify→chunk→item→render→token pipeline must hook handling be injected at each of 6 layers?
@@ -93,9 +94,10 @@
   - Enumerated parsing/analysis/renderer files; confirmed no `attachment` handling in src.
   - Loaded canonical plan template + ideal-outcomes template for format compliance.
 
-- **Open hedges (require the delegated agent to resolve, NOT the user):**
-  - "additional tasks for phase 1" trigger word → resolved into the RQ set in §4 (delegated, hence this Coldstart Bootstrap).
-  - Whether hook content double-counts against Visible Context categories — flagged as **RQ-6**, must be answered with evidence.
+- **Open hedges:**
+  - "additional tasks for phase 1" trigger word → RESOLVED into the RQ set in §4; all 7 RQs filed in §6.
+  - Visible Context double-count → RESOLVED by RQ-6 (no double-count; a dedicated context category is a separate, out-of-scope feature).
+  - **One residual boundary call for USER (Type 1):** "all the extra stuff being sent to claude" clearly includes content injections (`hook_additional_context`, `nested_memory`, `task_reminder`, `skill_listing`, `mcp_instructions_delta`, `deferred_tools_delta`, `command_permissions`, `edited_text_file`). It is ambiguous whether to also show hook *lifecycle/status* records that carry little or no injected content (`hook_success`, `hook_cancelled`, `hook_blocking_error`, `queued_command`). Recommendation: **display all `attachment` subtypes** (simplest, literally "all the extra stuff", and expand/collapse + token count lets the user judge relevance per row). Awaiting user confirm/veto.
 
 ---
 
@@ -195,8 +197,254 @@ Trace **bidirectionally** — forward from JSONL ingest and backward from the re
 ---
 
 ## 6. Research Findings
-%% *Last Modified: 05/17/26 17:02:50* %%
+%% *Last Modified: 05/17/26 17:10:23* %%
 
-`Research status: NOT STARTED`
+`Research status: COMPLETE`
 
 > Delegated agent: append all findings below this line. One subsection per RQ (RQ-1 … RQ-7). Do not modify any section above.
+
+---
+
+### RQ-1 — JSONL type layer
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**File:** `src/main/types/jsonl.ts`
+
+[OBS] The `EntryType` discriminated union at `jsonl.ts:15–21` enumerates exactly 6 members:
+```
+'user' | 'assistant' | 'system' | 'summary' | 'file-history-snapshot' | 'queue-operation'
+```
+`attachment` is **not** a member. [OBS:jsonl.ts:15-21]
+
+[OBS] The `ChatHistoryEntry` union at `jsonl.ts:212–218` is the top-level discriminated union consumed by the parser. It includes `UserEntry | AssistantEntry | SystemEntry | SummaryEntry | FileHistorySnapshotEntry | QueueOperationEntry`. No `AttachmentEntry` exists. [OBS:jsonl.ts:212-218]
+
+[OBS] The "unknown type" path is handled in `parseMessageType()` in `src/main/utils/jsonl.ts:199–216`:
+```typescript
+default:
+  // Unknown types are skipped
+  return null;
+```
+When `parseMessageType` returns `null`, `parseChatHistoryEntry` returns `null` at line 111 (`if (!type) { return null; }`), and the caller `parseJsonlFile` silently discards that record (no log, no error). [OBS:jsonl.ts:199-216, jsonl.ts:110-113, jsonl.ts:71-79]
+
+**Injection point for RQ-1:** A new `AttachmentEntry` interface must be added to `jsonl.ts` and included in the `ChatHistoryEntry` union. The `EntryType` alias must gain `'attachment'` as a member **OR** (preferred, to avoid touching `EntryType`) the attachment can be handled as a parallel type whose presence bypasses the `EntryType` check. The simplest surgical approach: add `AttachmentEntry` to `ChatHistoryEntry` union at `jsonl.ts:212` and add a new type guard `isAttachmentEntry`.
+
+**RESOLVED**
+
+---
+
+### RQ-2 — Parsing / classification (HIGHEST RISK)
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Files:** `src/main/utils/jsonl.ts`, `src/main/services/parsing/MessageClassifier.ts`
+
+[OBS] Complete trace of a `type:"attachment"` line through the parse stack:
+
+1. `parseJsonlFile` reads the line, calls `parseJsonlLine(line)` at `jsonl.ts:73`. [OBS:jsonl.ts:68-79]
+2. `parseJsonlLine` calls `JSON.parse(line) as ChatHistoryEntry` and passes to `parseChatHistoryEntry`. [OBS:jsonl.ts:88-95]
+3. `parseChatHistoryEntry` calls `parseMessageType(entry.type)` at `jsonl.ts:110`. [OBS:jsonl.ts:104-115]
+4. `parseMessageType` hits the `default` branch for `"attachment"`, returns `null`. [OBS:jsonl.ts:199-216]
+5. `parseChatHistoryEntry` checks `if (!type) { return null; }` at `jsonl.ts:111-113` and returns `null`. [OBS:jsonl.ts:110-113]
+6. `parseJsonlFile` receives `null` from `parseJsonlLine` and skips adding it to the `messages` array (checked via `if (parsed) { messages.push(parsed); }` at `jsonl.ts:73`). [OBS:jsonl.ts:72-75]
+7. **Result:** Attachment records are **silently dropped with no error log**. They never reach `MessageClassifier`, `ChunkBuilder`, or any downstream layer.
+
+[OBS] `MessageClassifier.categorizeMessage()` is never reached for attachment records because `parseJsonlFile` returns only non-null `ParsedMessage[]`. [OBS:MessageClassifier.ts:42-65]
+
+**Single injection point for attachment recognition:**
+
+The minimal injection point is `parseChatHistoryEntry` in `src/main/utils/jsonl.ts`, specifically before the `isConversationalEntry` check at line 134. A new early-return branch should handle `entry.type === 'attachment'` and convert `hook_additional_context` records into a new `ParsedHookEventMessage` (or into an extended `ParsedMessage` with additional fields). The `parseMessageType` function at `jsonl.ts:199-216` also needs `'attachment'` added to return the new type.
+
+**Important nuance discovered:** `type:"attachment"` records contain multiple `attachment.type` subtypes beyond `hook_additional_context`. The 48 records in the sample break down as: `hook_additional_context` (18), `hook_success` (6), `hook_cancelled` (5), `nested_memory` (5), `task_reminder` (5), `edited_text_file` (2), `skill_listing` (2), and one each of `command_permissions`, `deferred_tools_delta`, `hook_blocking_error`, `mcp_instructions_delta`, `queued_command`. The injection point must gate on `attachment.type === 'hook_additional_context'` (and optionally `hook_success`, `hook_cancelled`, `hook_blocking_error`) to avoid rendering every attachment subtype. [OBS: sample JSONL probe via jq]
+
+**RESOLVED**
+
+---
+
+### RQ-3 — Parsed message type + type guard
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Files:** `src/main/types/messages.ts`, `src/main/types/domain.ts`
+
+[OBS] Existing `MessageType` union in `domain.ts:26-32`:
+```typescript
+type MessageType = 'user' | 'assistant' | 'system' | 'summary' | 'file-history-snapshot' | 'queue-operation';
+```
+No `'attachment'` member exists. [OBS:domain.ts:26-32]
+
+[OBS] Existing `ParsedMessage` interface in `messages.ts:63-108` has `type: MessageType` as a required field. Adding a new message type requires either (a) extending `MessageType` with `'attachment'`, or (b) creating a parallel type `ParsedHookEventMessage` that does not extend `ParsedMessage`. Option (a) is simpler — the switch in `SessionParser.processMessages` at `SessionParser.ts:98-116` has a `default: byType.other.push(m)` branch that would safely absorb the new type without touching the existing `user`/`assistant`/`system` branches. [OBS:SessionParser.ts:98-116]
+
+[OBS] Existing type guards consumed downstream (from `messages.ts`):
+- `isParsedRealUserMessage` — checks `msg.type !== 'user'` [OBS:messages.ts:125]
+- `isParsedUserChunkMessage` — checks `msg.type !== 'user'` [OBS:messages.ts:165]
+- `isParsedSystemChunkMessage` — checks `msg.type !== 'user'` [OBS:messages.ts:245]
+- `isParsedInternalUserMessage` — checks `msg.type === 'user'` [OBS:messages.ts:270]
+- `isParsedHardNoiseMessage` — checks specific types by name [OBS:messages.ts:298-352]
+- `isParsedCompactMessage` — checks `isCompactSummary` flag [OBS:messages.ts:358]
+
+[F-ID] All existing type guards use explicit `msg.type === 'user'`/`=== 'assistant'` checks. None use wildcard patterns. A new `msg.type === 'attachment'` value would fall through all existing guards unchanged — no existing guard would incorrectly match or reject it. This means adding `'attachment'` to `MessageType` carries zero blast-radius risk to existing guard logic.
+
+**New message type needed:** Add `'attachment'` to `MessageType` in `domain.ts:32`. Add the following new type guard in `messages.ts`:
+```typescript
+export function isParsedHookEventMessage(msg: ParsedMessage): boolean {
+  return msg.type === 'attachment';
+}
+```
+
+**Where guards are consumed downstream:** `MessageClassifier.ts:44-64` imports and calls `isParsedHardNoiseMessage`, `isParsedCompactMessage`, `isParsedSystemChunkMessage`, `isParsedUserChunkMessage`. The new `isParsedHookEventMessage` guard would be consumed in `MessageClassifier.categorizeMessage` to create a new `'hook'` category (or route to `'ai'` for passthrough). [OBS:MessageClassifier.ts:32-65]
+
+**RESOLVED**
+
+---
+
+### RQ-4 — Chunk building / item ordering
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Files:** `src/main/services/analysis/ChunkBuilder.ts`, `src/main/services/analysis/SemanticStepExtractor.ts`
+
+[OBS] The `buildChunks` method in `ChunkBuilder.ts:78-152` iterates classified messages and dispatches by `category`. The current switch handles `'hardNoise'` (skip), `'compact'`, `'user'`, `'system'`, `'ai'` (buffer). A new `'hook'` category would be processed here. [OBS:ChunkBuilder.ts:98-135]
+
+[OBS] Child display items within an `AIChunk` are ordered by **timestamp** in `SemanticStepExtractor.ts:208`: `return steps.sort((a, b) => a.startTime.getTime() - b.startTime.getTime())`. The sort is performed after all steps are collected. [OBS:SemanticStepExtractor.ts:208-210]
+
+[OBS] A hook record carries `timestamp` and `parentUuid` as top-level fields (confirmed by JSONL probe). The `parentUuid` links the hook record to the assistant message that triggered it (e.g., a `PreToolUse` hook record's `parentUuid` matches the assistant message UUID of the tool call that preceded it).
+
+[F-ID] There are two viable insertion strategies:
+
+**Strategy A (preferred — simplest):** Route attachment records with `attachment.type === 'hook_additional_context'` into the existing `'ai'` category in `MessageClassifier`. This means they land in the `aiBuffer` in `ChunkBuilder` and are passed to `buildAIChunkFromBuffer`. Then `SemanticStepExtractor` must be extended to extract a new `'hook_event'` `SemanticStepType` from messages of type `'attachment'`. The timestamp-based sort in `SemanticStepExtractor.ts:208` will then automatically place hook items at the correct position relative to other steps. No new chunk type needed. **Ordering key is `timestamp`.**
+
+**Strategy B (parallel path):** Create a new `MessageCategory` `'hook'` and produce new `HookChunk` items. This is heavier and unnecessary since hook events are logically part of the AI response stream.
+
+[OBS] In the sample JSONL, a `UserPromptSubmit` hook record appears at line 13 with `timestamp` between the preceding user message (line 12) and the first assistant message. A `PreToolUse` hook appears immediately before its linked tool call. This confirms that timestamp-based ordering within the AI buffer will naturally produce the correct position — between the slash item and the first tool call output — matching the screenshot target. [OBS: JSONL probe, lines 13, 16]
+
+**Injection point for RQ-4:** `SemanticStepExtractor.ts` — add a new branch in the `for (const msg of chunk.responses)` loop at line 33 to handle `msg.type === 'attachment'`. This runs after `Strategy A` makes attachment records flow into `chunk.responses`. The sort at line 208 handles ordering automatically.
+
+**New `SemanticStepType` needed:** Add `'hook_event'` to the union in `chunks.ts:226-232`.
+
+**RESOLVED**
+
+---
+
+### RQ-5 — Display-item type + renderer (visual pattern to mirror)
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Files:** `src/renderer/types/groups.ts`, `src/renderer/components/chat/DisplayItemList.tsx`, `src/renderer/components/chat/items/SlashItem.tsx`
+
+[OBS] The `AIGroupDisplayItem` discriminated union in `groups.ts:250-264`:
+```typescript
+export type AIGroupDisplayItem =
+  | { type: 'thinking'; content: string; timestamp: Date; tokenCount?: number }
+  | { type: 'tool'; tool: LinkedToolItem }
+  | { type: 'subagent'; subagent: Process }
+  | { type: 'output'; content: string; timestamp: Date; tokenCount?: number }
+  | { type: 'slash'; slash: SlashItem }
+  | { type: 'teammate_message'; teammateMessage: TeammateMessage }
+  | { type: 'subagent_input'; content: string; timestamp: Date; tokenCount?: number }
+  | { type: 'compact_boundary'; ... }
+```
+No `'hook'` variant exists. [OBS:groups.ts:250-264]
+
+[OBS] `DisplayItemList.tsx:100-340` contains a `switch (item.type)` dispatch. Every case maps to a component. There is a `default: return null` fallback at line 322. A new `'hook'` case must be added here. [OBS:DisplayItemList.tsx:104-324]
+
+**Closest visual template:** `SlashItem` / `BaseItem` pattern. Evidence:
+- [OBS] `SlashItem.tsx` wraps `BaseItem` with: `icon={<Slash className="size-4" />}`, `label={`/${slash.name}`}`, `tokenCount={slash.instructionsTokenCount}`, `hasExpandableContent={hasInstructions}`, children = `<MarkdownViewer content={slash.instructions!} />`. [OBS:SlashItem.tsx:46-71]
+- [OBS] `BaseItem.tsx:142-153` renders the token count pill inline in the header row: `~{formatTokens(tokenCount)} {tokenLabel}`. It is NOT `MetricsPill` — `MetricsPill` is a separate component used at the AI group level for main session impact / subagent context display. [OBS:BaseItem.tsx:142-153, MetricsPill.tsx:1-215]
+- [OBS] Expand/collapse is handled entirely by `BaseItem` via the `isExpanded` prop and `ChevronRight` icon at `BaseItem.tsx:172-178`. The expanded content is `children` rendered below the header at `BaseItem.tsx:182-189`. [OBS:BaseItem.tsx:172-189]
+
+[F-ID] A `HookItem` component should be structured identically to `SlashItem`: pass `BaseItem` an appropriate icon, `label` = e.g. `Hook`, `summary` = `hookEvent` value (e.g. `"UserPromptSubmit"`), `tokenCount` = estimated tokens from `attachment.content.join('\n')`, `hasExpandableContent={!!contentText}`, children = `<MarkdownViewer content={contentText} />`.
+
+**Icon recommendation:** `Webhook` from lucide-react (not yet used in chat items; conveys hook event semantics). Fallback: `Zap` or `Activity`. [OBS: inventory of existing item icons shows `Slash`, `MailOpen`, `ChevronRight`, `Wrench`, `Layers`, `Brain`, `RefreshCw`, `MessageSquare`, `CornerDownLeft` — none convey hook/webhook semantics; `Webhook` is the natural fit]
+
+**New variant to add to `AIGroupDisplayItem`:**
+```typescript
+| {
+    type: 'hook';
+    hookEvent: string;   // e.g. "UserPromptSubmit"
+    hookName: string;    // e.g. "UserPromptSubmit" or "PreToolUse:Bash"
+    content: string;     // joined attachment.content
+    timestamp: Date;
+    tokenCount?: number;
+  }
+```
+
+**Files to touch for RQ-5:**
+1. `src/renderer/types/groups.ts` — add `'hook'` variant to `AIGroupDisplayItem`
+2. `src/renderer/components/chat/DisplayItemList.tsx` — add `case 'hook':` dispatch
+3. `src/renderer/components/chat/items/HookItem.tsx` — new file (mirrors `SlashItem.tsx`)
+4. `src/renderer/utils/displayItemBuilder.ts` — add `case 'hook_event':` in `buildDisplayItems` switch at line 149
+
+**RESOLVED**
+
+---
+
+### RQ-6 — Token calculation + Visible Context interaction
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Files:** `src/renderer/components/chat/items/BaseItem.tsx`, `src/shared/utils/tokenFormatting.ts`, `src/renderer/utils/contextTracker.ts`, `src/renderer/types/contextInjection.ts`
+
+**Token calculation for the `~N tokens` pill:**
+
+[OBS] `BaseItem.tsx:142-153` renders the per-item token pill directly from a `tokenCount` prop using `formatTokens(tokenCount)`. `formatTokens` is defined in `src/shared/utils/tokenFormatting.ts` and delegates to `estimateTokens(text)` = `Math.ceil(text.length / 4)`. [OBS:BaseItem.tsx:142-153, tokenFormatting.ts]
+
+[OBS] `SlashItem` passes `slash.instructionsTokenCount` to `BaseItem.tokenCount`. `instructionsTokenCount` is computed in `slashCommandExtractor.ts:125`: `estimateTokens(followUp.text)` where `followUp.text` is the raw instructions string. [OBS:slashCommandExtractor.ts:125]
+
+[F-ID] For a `HookItem`, token count should be computed as `estimateTokens(attachment.content.join('\n'))` at display-item build time in `displayItemBuilder.ts`. This mirrors the slash pattern exactly. The value is passed as `tokenCount` on the new `'hook'` display item variant.
+
+**Visible Context double-count analysis:**
+
+[OBS] The `ContextInjection` union in `contextInjection.ts:214-220` has 6 categories: `claude-md`, `mentioned-file`, `tool-output`, `thinking-text`, `task-coordination`, `user-message`. Hook content is not currently tracked in any category. [OBS:contextInjection.ts:214-220]
+
+[OBS] `contextTracker.ts:184-252` (`aggregateToolOutputs`) scans `linkedTools` values for tool-output tokens. Hook content arrives as an attachment record separate from tool results — it does NOT appear in `linkedTools` (which are built from `tool_use`/`tool_result` pairs in assistant/user messages). Hook records are separate JSONL lines, not content blocks within existing messages. [OBS:contextTracker.ts:184-252]
+
+[F-ID] Hook context IS injected into Claude's context window (that is the semantic purpose of `hook_additional_context`). However, since the Visible Context system currently tracks context consumption from the _next_ assistant message's `input_tokens` (which includes everything: CLAUDE.md, tool results, hook injections, etc.), displaying hook tokens in a new `ContextInjection` category would NOT double-count against the raw `input_tokens` total. The `input_tokens` field is a measured total; the `ContextInjection` breakdown is an estimated decomposition of that total.
+
+[H] The correctness risk is: adding a `'hook'` category to `ContextInjection` would cause the estimated breakdown total to exceed the measured `input_tokens` only if the hook tokens are also accidentally counted in another category (e.g., `tool-output`). Since hook records are separate lines not processed by `aggregateToolOutputs`, this cross-counting does not occur today. Risk-if-wrong: if a future attachment subtype is also processed as a tool result, the category could double-count — but this would be a future bug in that future subtype's handling, not in the hook category itself.
+
+**Recommendation:** For Phase 1, display hook tokens in the `BaseItem` token pill (per-item display) only. Do NOT add a new `ContextInjection` category in this feature — the correct extension would be a dedicated `HookInjection` category, but that is a non-trivial addition to the context tracking system that should be treated as a separate feature. Adding it now is out of scope and risks the implementation plan scope-creeping.
+
+**RESOLVED**
+
+---
+
+### RQ-7 — Authoritative hook schema cross-check
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+**Source:** Claude Code official documentation at `https://code.claude.com/docs/en/hooks` (fetched live during this research session).
+
+[OBS] The 4 `hookEvent` values observed in the sample (`UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `Stop`) are confirmed valid hook events. However, the official documentation lists **far more** hook event types than observed in the sample. Full authoritative list:
+
+**Session-level:** `SessionStart`, `Setup`, `SessionEnd`
+**Per-turn:** `UserPromptSubmit`, `UserPromptExpansion`, `Stop`, `StopFailure`
+**Agentic loop / tool execution:** `PreToolUse`, `PostToolUse`, `PostToolUseFailure`, `PostToolBatch`, `PermissionRequest`, `PermissionDenied`
+**File and config:** `FileChanged`, `ConfigChange`, `InstructionsLoaded`, `CwdChanged`
+**Agent and team:** `SubagentStart`, `SubagentStop`, `TeammateIdle`
+**Task and compaction:** `TaskCreated`, `TaskCompleted`, `PreCompact`, `PostCompact`
+**Worktree:** `WorktreeCreate`, `WorktreeRemove`
+**MCP server:** `Elicitation`, `ElicitationResult`
+**Notification:** `Notification`
+
+[OBS] Total distinct `hookEvent` values in sample: 4 (`UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `Stop`). Total events in official docs: approximately 25. The gap is large. [OBS: JSONL probe; WebFetch of docs]
+
+[OBS] Additionally, the sample reveals that `type:"attachment"` records carry multiple `attachment.type` values beyond `hook_additional_context`: `hook_success`, `hook_cancelled`, `hook_blocking_error` are also hook-related subtypes. These represent hook lifecycle outcomes (not just content injection). [OBS: JSONL probe, `jq -r '.attachment.type' | sort | uniq -c`]
+
+**Critical implementation risk:** Any `switch (hookEvent)` that handles only the 4 observed values will silently drop the other ~21 hook types. The implementation must use a **catch-all display path** (render any unrecognized `hookEvent` as a generic hook row with the hookEvent name as label) rather than an exhaustive switch over only known values.
+
+**RESOLVED**
+
+---
+
+### Pipeline Trace Summary (complete entry → exit)
+%% *Last Modified: 05/17/26 17:10:23* %%
+
+[F-ID] The complete 6-layer pipeline for hook event display, with injection points at each layer:
+
+| Layer | File | Current behavior | Injection point |
+|---|---|---|---|
+| 1. JSONL type | `src/main/types/jsonl.ts:212` | `'attachment'` not in `ChatHistoryEntry` union | Add `AttachmentEntry` interface + add to union |
+| 2. Parser | `src/main/utils/jsonl.ts:199-216` | `'attachment'` hits `default: return null` in `parseMessageType` | Add `case 'attachment': return 'attachment'` + handle in `parseChatHistoryEntry` |
+| 3. Classifier | `src/main/services/parsing/MessageClassifier.ts:42-65` | Never reached (records dropped) | Add `isParsedHookEventMessage` guard; route to `'ai'` category |
+| 4. Chunk builder | `src/main/services/analysis/ChunkBuilder.ts:131-133` | Never reached | No change needed if category = `'ai'`; hook messages join `aiBuffer` |
+| 5. Semantic step extractor | `src/main/services/analysis/SemanticStepExtractor.ts:33` | Never reached | Add new branch in `for (msg of chunk.responses)` loop; emit `SemanticStep` with new type `'hook_event'` |
+| 6a. Display item builder | `src/renderer/utils/displayItemBuilder.ts:149` | `'hook_event'` case missing from switch | Add `case 'hook_event':` emitting `{ type: 'hook', hookEvent, hookName, content, timestamp, tokenCount }` |
+| 6b. Display item union | `src/renderer/types/groups.ts:250` | No `'hook'` variant | Add `'hook'` member to `AIGroupDisplayItem` union |
+| 6c. Display item list | `src/renderer/components/chat/DisplayItemList.tsx:104` | No `case 'hook':` | Add `case 'hook':` dispatching to new `HookItem` |
+| 6d. Item component | (new file) | Does not exist | Create `src/renderer/components/chat/items/HookItem.tsx` mirroring `SlashItem.tsx` |
+
+**New type also required:** Add `'hook_event'` to `SemanticStepType` union in `src/main/types/chunks.ts:226`.
