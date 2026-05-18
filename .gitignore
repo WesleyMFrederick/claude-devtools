@@ -48,3 +48,14 @@ claude-dev.tools/*
 
 eslint-fix/
 remotion/*
+
+# Fork-specific config (never upstream)
+documentation-sync-manifest.json
+architecture-principles
+design-docs
+workflows
+
+# Symlinked shared content
+workflows/
+design-docs/
+architecture-principles/
