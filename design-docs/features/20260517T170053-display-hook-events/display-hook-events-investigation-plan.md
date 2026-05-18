@@ -451,7 +451,7 @@ No `'hook'` variant exists. [OBS:groups.ts:250-264]
 **New type also required:** Add `'hook_event'` to `SemanticStepType` union in `src/main/types/chunks.ts:226`.
 
 ### RQ-8 — Per-subtype payload shapes (which field holds displayable content)
-%% *Last Modified: 05/17/26 18:06:12* %%
+%% *Last Modified: 05/17/26 18:25:19* %%
 
 All 12 subtypes verified from session `de45b08f-129e-49b2-8b1d-8521caee1790.jsonl` [OBS].
 
@@ -485,3 +485,34 @@ All 12 subtypes verified from session `de45b08f-129e-49b2-8b1d-8521caee1790.json
 [A] `deferred_tools_delta.addedLines` appeared identical to `addedNames` in the observed record. Its distinct purpose (if any) is unknown. Risk-if-wrong: if they diverge in other records, using `addedNames` for display may omit info that `addedLines` carries.
 
 Research status: RQ-8 COMPLETE
+
+---
+
+### RQ-9 — LSP-verified blast radius (supersedes RQ-4, RQ-5, Pipeline Trace Summary file lists)
+%% *Last Modified: 05/17/26 18:25:19* %%
+
+**Why this exists:** §5 mandated "LSP-first static analysis … Grep/Read only as fallback." RQ-1…RQ-7 were traced by the delegated model with Grep/Read, in violation of §5. This subsection re-runs the "which files must change" question with LSP. Where it conflicts with RQ-4 / RQ-5 / the Pipeline Trace Summary, **RQ-9 wins**.
+
+**Method correction [F-ID]:** `LSP findReferences` on a string-literal *union type alias* under-reports switch sites. `findReferences` on `SemanticStepType` (chunks.ts:226:13) returned only 2 refs (the definition + the `SemanticStep.type` field at 247:9) — because exhaustive switches discriminate on the **field value**, not the type-alias name. Correct target = the **carrier interface** (`SemanticStep`) or the discriminated field. All counts below query the carrier, not the alias.
+
+**Corrected blast radius:**
+
+| Injection point | Grep-trace claim | LSP (carrier) | Delta |
+|---|---|---|---|
+| `AIGroupDisplayItem` (groups.ts:250) | 3 files (RQ-5) | [OBS] 25 refs / 7 files | **+4 files** |
+| `SemanticStep` (chunks.ts:243) | ~1 file (RQ-4: `SemanticStepExtractor`) | [OBS] 43 refs / 16 files | **+15 files** |
+
+[OBS] `AIGroupDisplayItem` refs (LSP findReferences groups.ts:250:13 → 25 refs / 7 files): `groups.ts`, `displayItemBuilder.ts`, `displaySummary.ts`, `contextTracker.ts` (6 refs), `ExecutionTrace.tsx`, `DisplayItemList.tsx`, `AIChatGroup.tsx`.
+
+[OBS] `SemanticStep` refs (LSP findReferences chunks.ts:243:18 → 43 refs / 16 files): incl. `SemanticStepGrouper.ts` (5), `groupTransformer.ts` (4), `lastOutputDetector.ts` (4), `toolLinkingEngine.ts` (3), `timelineGapFilling.ts` (3), `contextAccumulator.ts` (2), `modelExtractor.ts` (2), `claudeMdTracker.ts` (2), item components `TextItem`/`ThinkingItem`/`SubagentItem`, plus `data.ts` / `groups.ts` / `SemanticStepExtractor.ts`. RQ-4's "no change needed if category = 'ai'" is **not safe** until these are classified.
+
+[OBS] Consumer classification (verified by Read):
+- `contextTracker.ts:225-235` uses targeted `if (item.type === 'slash')`, **not** an exhaustive switch. A new `'hook'` variant compiles and is silently skipped → **SAFE-IGNORE**. Consequence: hook content is injected into Claude's real context window but is invisible to Visible Context token accounting. This confirms RQ-6's "out of scope" as a deliberate blind spot, not a defect.
+
+**Still to classify (LSP located, Read pending):** `displaySummary.ts`, `ExecutionTrace.tsx`, `AIChatGroup.tsx`, the `DisplayItemList.tsx` switch; `SemanticStepGrouper.ts`, `groupTransformer.ts`, `lastOutputDetector.ts`, `timelineGapFilling.ts`. Each gets tagged `must-add-case` | `safe-ignore` | `needs-verify` before any implementation plan is written.
+
+**Parser layer (RQ-1/2/3):** LSP audit pending — `ParsedMessage` carrier fan-out not yet verified.
+
+**Impact:** The "clean additive ~9-file change" framing in the Pipeline Trace Summary is **withdrawn**. The true blast radius is materially larger and must be classified file-by-file before AC/DoD can be claimed.
+
+Research status: RQ-9 IN PROGRESS (renderer-union LSP done; parser layer + consumer classification pending)
