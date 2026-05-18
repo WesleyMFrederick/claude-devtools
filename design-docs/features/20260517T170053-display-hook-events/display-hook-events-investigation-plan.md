@@ -62,7 +62,7 @@
 ---
 
 ## 1. Problem Understanding (Phase 1 output)
-%% *Last Modified: 05/17/26 17:50:43* %%
+%% *Last Modified: 05/17/26 18:00:16* %%
 
 - **Parent Unknown (U0) — CORRECTED 2026-05-17 (user steering, mid-session):** Make **every `type:"attachment"` context injection** from JSONL session transcripts visible in the claude-devtools timeline — hook events **and** nested memory, task reminders, skill listings, MCP instructions, and the rest — rendered with the same item affordances (icon, expand/collapse, per-item token count) as existing display items. The end goal is: the user can see *all the extra material being fed into Claude's context* that the timeline does not currently show. "Display hookEvent" was one *means*; this is the *end*.
   - source: stated as "hookEvent" (user prompt) → broadened by explicit user clarification mid-session: "the goal is for me to be able to see all the extra stuff being sent to claude. so nested memory, task reminders, would also be good to include"
@@ -97,7 +97,8 @@
 - **Open hedges:**
   - "additional tasks for phase 1" trigger word → RESOLVED into the RQ set in §4; all 7 RQs filed in §6.
   - Visible Context double-count → RESOLVED by RQ-6 (no double-count; a dedicated context category is a separate, out-of-scope feature).
-  - **One residual boundary call for USER (Type 1):** "all the extra stuff being sent to claude" clearly includes content injections (`hook_additional_context`, `nested_memory`, `task_reminder`, `skill_listing`, `mcp_instructions_delta`, `deferred_tools_delta`, `command_permissions`, `edited_text_file`). It is ambiguous whether to also show hook *lifecycle/status* records that carry little or no injected content (`hook_success`, `hook_cancelled`, `hook_blocking_error`, `queued_command`). Recommendation: **display all `attachment` subtypes** (simplest, literally "all the extra stuff", and expand/collapse + token count lets the user judge relevance per row). Awaiting user confirm/veto.
+  - **Scope boundary → RESOLVED 2026-05-17 (user: "so ALL"):** Display **every `attachment` subtype**, no exclusions. User supplied real samples proving the "status-only" subtypes actually carry meaningful content: `hook_success` carries `stdout` with injected `hookSpecificOutput.additionalContext`; `hook_blocking_error` carries the full `blockingError.blockingError` text injected back into Claude; `queued_command` carries the user's queued `prompt`. None are noise.
+  - **NEW auxiliary unknown (U4) — opened by the user's samples:** `attachment` subtypes have **heterogeneous payload shapes**; displayable content lives in a different field per subtype (`hook_additional_context`→`content[]`, `hook_success`→`stdout`, `hook_blocking_error`→`blockingError.blockingError`, `queued_command`→`prompt`, and `queued_command` has **no** `hookEvent`/`hookName` — it is not a hook). The §6 research found subtype *names/counts* but not per-subtype *content-field locations*. This blocks a grounded implementation plan (the renderer needs a per-subtype content extractor). → dispatched as **RQ-8** (cheap mechanical jq probe), findings to be appended to §6.
 
 ---
 
@@ -431,7 +432,7 @@ No `'hook'` variant exists. [OBS:groups.ts:250-264]
 ---
 
 ### Pipeline Trace Summary (complete entry → exit)
-%% *Last Modified: 05/17/26 17:10:23* %%
+%% *Last Modified: 05/17/26 18:06:12* %%
 
 [F-ID] The complete 6-layer pipeline for hook event display, with injection points at each layer:
 
@@ -448,3 +449,39 @@ No `'hook'` variant exists. [OBS:groups.ts:250-264]
 | 6d. Item component | (new file) | Does not exist | Create `src/renderer/components/chat/items/HookItem.tsx` mirroring `SlashItem.tsx` |
 
 **New type also required:** Add `'hook_event'` to `SemanticStepType` union in `src/main/types/chunks.ts:226`.
+
+### RQ-8 — Per-subtype payload shapes (which field holds displayable content)
+%% *Last Modified: 05/17/26 18:06:12* %%
+
+All 12 subtypes verified from session `de45b08f-129e-49b2-8b1d-8521caee1790.jsonl` [OBS].
+
+| attachment.type | All keys under .attachment | Displayable content field | Field type / inner shape | Has hookEvent/hookName? | Extractor rule |
+|---|---|---|---|---|---|
+| `hook_additional_context` | `type, content, hookName, toolUseID, hookEvent` | `content` | `string[]` — each element is a raw string (not `{type,text}` objects) | Yes | `content.join('\n')` |
+| `hook_success` | `type, command, content, durationMs, exitCode, hookEvent, hookName, stderr, stdout, toolUseID` | `stdout` (primary); `content` is always `""` | `string` — often JSON; when JSON, human-readable part at `.hookSpecificOutput.additionalContext` | Yes | `JSON.parse(stdout)?.hookSpecificOutput?.additionalContext ?? stdout` |
+| `hook_cancelled` | `type, command, durationMs, hookEvent, hookName, toolUseID` | None — no content field | n/a — metadata only (records that hook was cancelled before completion) | Yes | Display as "Hook cancelled: `{hookName}` ({hookEvent})" — no content to extract |
+| `hook_blocking_error` | `type, hookName, toolUseID, hookEvent, blockingError` | `blockingError.blockingError` | `string` (nested: outer `blockingError` is an object `{blockingError: string, command: string}`) | Yes | `attachment.blockingError.blockingError` |
+| `queued_command` | `type, prompt, commandMode` | `prompt` | `string` | No | `prompt` |
+| `nested_memory` | `type, path, content, displayPath` | `content.content` | Outer `content` is object `{path, type, content, contentDiffersFromDisk}`; inner `content` is a `string` (the file text) | No | `content.content` (with `displayPath` as label) |
+| `task_reminder` | `type, content, itemCount` | `content` | `array` of task objects `{id, subject, description, activeForm, status, blocks, blockedBy}` | No | `content.map(t => \`${t.status} — ${t.subject}\`).join('\n')` (or render per-task cards) |
+| `edited_text_file` | `type, filename, snippet` | `snippet` | `string` — line-numbered file content (format: `"N\t<line text>\n..."`) | No | `snippet` (with `filename` as label) |
+| `skill_listing` | `type, content, skillCount, isInitial` | `content` | `string` — newline-delimited list of skill names and descriptions | No | `content` (with `skillCount` as metadata) |
+| `command_permissions` | `type, allowedTools` | `allowedTools` | `string[]` — tool name strings (empty array `[]` observed) | No | `allowedTools.length ? allowedTools.join(', ') : '(none)'` |
+| `deferred_tools_delta` | `type, addedNames, addedLines, removedNames, readdedNames, pendingMcpServers` | `addedNames` + `removedNames` | `string[]` each — tool name strings | No | Summary: `+${addedNames.length} tools, -${removedNames.length} tools`; detail: `addedNames.join(', ')` |
+| `mcp_instructions_delta` | `type, addedNames, addedBlocks, removedNames` | `addedBlocks` | `string[]` — each element is a full MCP server instruction block (markdown) | No | `addedNames.join(', ')` as label; `addedBlocks.join('\n---\n')` as body |
+
+**Notes:**
+
+[OBS] `hook_cancelled`: No `content`, `stdout`, or `stderr` fields. The record is purely metadata confirming a hook ran but was cancelled before producing output. The renderer has nothing to display as body text — it should render as a collapsed "cancelled" badge with `hookName` and `hookEvent`.
+
+[OBS] `nested_memory`: The double-nested `content.content` is not a mistake. The outer `content` object carries provenance (`path`, `type`, `contentDiffersFromDisk`); the inner `content` string is the actual CLAUDE.md body text. `displayPath` (e.g. `"src/CLAUDE.md"`) is a relative display label, not an absolute path.
+
+[OBS] `hook_success`: `content` field is always `""` (empty string). `stdout` is the real payload and may be empty-string when the hook produced no output. Parse defensively: `stdout` is not guaranteed to be valid JSON.
+
+[OBS] `task_reminder`: `content` is an array of task objects, not strings. Each object has 7 fields. `description` contains the full task body (may be multi-line markdown); `subject` is the one-line title. `activeForm` is a gerund phrase ("Listing branches") suitable for display headers. `itemCount` equals `content.length`.
+
+[A] `command_permissions.allowedTools` was `[]` in the single observed record. It may contain tool names when permissions are actually granted. Risk-if-wrong: rendering it as "(none)" when names are present would hide real permissions.
+
+[A] `deferred_tools_delta.addedLines` appeared identical to `addedNames` in the observed record. Its distinct purpose (if any) is unknown. Risk-if-wrong: if they diverge in other records, using `addedNames` for display may omit info that `addedLines` carries.
+
+Research status: RQ-8 COMPLETE
