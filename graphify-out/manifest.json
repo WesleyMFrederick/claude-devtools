@@ -1,0 +1,1622 @@
+{
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/setup.ts": {
+    "mtime": 1774280158.6508315,
+    "hash": "ff1fc46564be1ea5f388a4ee0795c74c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/mocks/electronAPI.ts": {
+    "mtime": 1774280158.6484985,
+    "hash": "4ee85f21dadd0cb85088108440991d68"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/constants/teamColors.test.ts": {
+    "mtime": 1774280158.6487803,
+    "hash": "f88ef8ff91677ee2eeb02413cbee77ad"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/dateGrouping.test.ts": {
+    "mtime": 1778830209.3968222,
+    "hash": "aad31a94f277bd7b0f8d17e337d2dfd7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/sessionExporter.test.ts": {
+    "mtime": 1774280158.6507437,
+    "hash": "1c3f7a35c5734ca79024eeebea991f43"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/keyboardUtils.test.ts": {
+    "mtime": 1774280158.650529,
+    "hash": "2e67a5d2bdd62bc960ffb6e265c7e972"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/renderHelpers.test.ts": {
+    "mtime": 1774280158.6506577,
+    "hash": "fbd4188ee0394c3e02c756e16f8896ba"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/formatters.test.ts": {
+    "mtime": 1774280158.6504614,
+    "hash": "2e32ffd6618b79b8a0e2601d0edffb4f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/displayItemBuilder.test.ts": {
+    "mtime": 1774280158.650394,
+    "hash": "5a0142eabe2ef09a09b7605e349d0e5f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/claudeMdTracker.test.ts": {
+    "mtime": 1774280158.6502566,
+    "hash": "1cfe8026f24a6fa0a92ab6ec1145130c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/pathUtils.test.ts": {
+    "mtime": 1774280158.6505933,
+    "hash": "306a3964ae67ef9c99a74d3fca01253d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/utils/stringUtils.test.ts": {
+    "mtime": 1775847228.080395,
+    "hash": "5ee0603d2fa11402402993d8f8974dda"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/components/renderOutput.test.ts": {
+    "mtime": 1774280158.6486652,
+    "hash": "e0d3b0a81bfe957c9b7a7c7ddfb96f37"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/components/memoryFrontmatter.test.ts": {
+    "mtime": 1778830209.395942,
+    "hash": "dab5479fb33a5f9d34db25e88eea0658"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/hooks/useSearchContextNavigation.test.ts": {
+    "mtime": 1774280158.6490345,
+    "hash": "dd7fe0b3c8b4266f938c28d7563daed4"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/hooks/useAutoScrollBottom.test.ts": {
+    "mtime": 1774280158.6489637,
+    "hash": "743a84f00864d53da43e6e0eb8902991"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/hooks/navigationUtils.test.ts": {
+    "mtime": 1774280158.6488962,
+    "hash": "47628f6b69df5f7f412f05612f0ec2f2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/hooks/useVisibleAIGroup.test.ts": {
+    "mtime": 1774280158.6491494,
+    "hash": "23b4fb8a22807ca8a4ac236ed1a241d1"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/paneSlice.test.ts": {
+    "mtime": 1774280158.649515,
+    "hash": "67912158a0abae8c1b6c9d0f22748f32"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/tabUISlice.test.ts": {
+    "mtime": 1774280158.6501448,
+    "hash": "2dee8fc6852ff1092a69dfdbc7d5057c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/memorySlice.test.ts": {
+    "mtime": 1778830209.3960705,
+    "hash": "f07175876277890e74dbca5b3d6f8a5a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/pathResolution.test.ts": {
+    "mtime": 1774280158.6496005,
+    "hash": "9b01c5755c3a75e1057cc4cf343773bb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/storeTestUtils.ts": {
+    "mtime": 1778830209.3965566,
+    "hash": "15c45e26e6aabff726a1447e0b0df8db"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/notificationSlice.test.ts": {
+    "mtime": 1774280158.6494021,
+    "hash": "89d734b2f2ed1ea6d7b458bed69ace71"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/sessionSlice.test.ts": {
+    "mtime": 1774280158.6497319,
+    "hash": "536aacb8603aa8ac31e9e64b41f38592"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/renderer/store/tabSlice.test.ts": {
+    "mtime": 1774280158.6500309,
+    "hash": "cccae3d1b52de5b39ca3203f76dc8ea9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/memoryIndex.test.ts": {
+    "mtime": 1778830209.3969598,
+    "hash": "668814d3e0c3544d70e7d3dd3a0ac723"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/tokenFormatting.test.ts": {
+    "mtime": 1774280158.6512842,
+    "hash": "52a0f109d185d94856efbb368d6c59d5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/markdownTextSearch.test.ts": {
+    "mtime": 1774280158.6511362,
+    "hash": "447d75f58c4b214f623a3a26e6f35991"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/modelParser.test.ts": {
+    "mtime": 1774280158.651215,
+    "hash": "9f45f54716e06099222c7dae00547677"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/sessionIdValidator.test.ts": {
+    "mtime": 1775847228.0806308,
+    "hash": "f021a319027a15331d2d4f6a7922adbe"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/sessionDetailResponse.test.ts": {
+    "mtime": 1777839233.4960876,
+    "hash": "308a9a6754ecfb5b157dd5dcdfd4f30a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/shared/utils/markdownSearchRendererAlignment.test.ts": {
+    "mtime": 1774280158.6509986,
+    "hash": "2a5d2ffa78a38695c6317851a72c6768"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/utils/pathDecoder.test.ts": {
+    "mtime": 1774280158.6480968,
+    "hash": "a5c200cb2b851ec76093c323dca61cbb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/utils/tokenizer.test.ts": {
+    "mtime": 1774280158.6483803,
+    "hash": "759436f704953ff8f34a66d520ab650f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/utils/pathValidation.test.ts": {
+    "mtime": 1774280158.6482356,
+    "hash": "d9b27790790f82ca848836f9fb1ae65a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/utils/jsonl.test.ts": {
+    "mtime": 1774280158.6480265,
+    "hash": "1ae874e0bfa73971f5fd79d13428847f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/utils/regexValidation.test.ts": {
+    "mtime": 1774280158.6483095,
+    "hash": "6e5b6d992ec723a49f8c6fc5437af904"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/ipc/guards.test.ts": {
+    "mtime": 1774280158.6467469,
+    "hash": "0d90c0ebaee12b4b6928bee2735d1e48"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/ipc/globalSearch.test.ts": {
+    "mtime": 1774280158.6466708,
+    "hash": "5207170b3e1d62653496a5d48335a7d3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/ipc/configValidation.test.ts": {
+    "mtime": 1774280158.6465702,
+    "hash": "d1acd2923e0f0179401c943ed03c850e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/ipc/searchSessionId.test.ts": {
+    "mtime": 1775847228.0803037,
+    "hash": "f902cf8ca4365667a0363619cab09e6b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/analysis/ChunkBuilder.test.ts": {
+    "mtime": 1774280158.6469512,
+    "hash": "ab30466180f25f21713d3ddb7c88794f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/MemoryReader.test.ts": {
+    "mtime": 1778830209.3953266,
+    "hash": "e20a9cd2f5555ff730b9124e4d0262d6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/ProjectScanner.cwdSplit.test.ts": {
+    "mtime": 1774280158.6471748,
+    "hash": "965f32d0149cfec9730826df4db62111"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/SearchTextExtractor.test.ts": {
+    "mtime": 1774280158.6473405,
+    "hash": "322a75eb6fd58786edfbb52179655771"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/SessionSearcher.test.ts": {
+    "mtime": 1774280158.647412,
+    "hash": "3339ea40824f53dfae8b450e2e692c58"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/ProjectScanner.updatedAt.test.ts": {
+    "mtime": 1778830209.395444,
+    "hash": "19a26ac7ffe377177491c73ae319d12c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/WorktreeGrouper.test.ts": {
+    "mtime": 1778830209.3955603,
+    "hash": "d3dbb8912ab4d47fbea686d0db86a3e8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/ProjectPathResolver.test.ts": {
+    "mtime": 1774280158.647092,
+    "hash": "faa31f48c4e02b57241e822893085b93"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/discovery/SearchTextCache.test.ts": {
+    "mtime": 1774280158.6472528,
+    "hash": "96d1993da7cbbc1e5bc4bfecbf000fc1"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/parsing/MessageClassifier.test.ts": {
+    "mtime": 1774280158.6478062,
+    "hash": "17e1338d31c0d1fbb28aba9cc26737fa"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/parsing/AgentConfigReader.test.ts": {
+    "mtime": 1774280158.6476629,
+    "hash": "588b8aa4917c184b3ffcfd687425bc36"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/parsing/GitIdentityResolver.test.ts": {
+    "mtime": 1778830209.3956978,
+    "hash": "a6168b720bde35ba33ae544712e0a6bb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/parsing/GitIdentityResolver.upwards.test.ts": {
+    "mtime": 1778830209.395811,
+    "hash": "4908f0075a105f8fed7d8319b3662444"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/parsing/SessionParser.test.ts": {
+    "mtime": 1774280158.6479049,
+    "hash": "f156c63848936ca670240dfbd3bc48d0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/test/main/services/infrastructure/FileWatcher.test.ts": {
+    "mtime": 1774280158.6475391,
+    "hash": "ca8b509c9fdeb4b8d1e8db6ac086bdd5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/App.tsx": {
+    "mtime": 1774280158.623724,
+    "hash": "2ecc899ac84cf95b2e1a8c5c393f1019"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/main.tsx": {
+    "mtime": 1774280158.6397448,
+    "hash": "b191776cec2f9adb5fd3ad3a21231922"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/vite-env.d.ts": {
+    "mtime": 1774280158.6444392,
+    "hash": "0ac30330dd907110b68f9e2cc7156f35"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/data.ts": {
+    "mtime": 1774280158.6421707,
+    "hash": "125ea96a1fa84b95a62441d2b94277cd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/notifications.ts": {
+    "mtime": 1774280158.6423388,
+    "hash": "3191f9c71dc5065dc24be7b5402ccd7f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/api.ts": {
+    "mtime": 1774280158.641917,
+    "hash": "bdd2b32049b618cbc42b1bcd538a0add"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/groups.ts": {
+    "mtime": 1778829897.1541438,
+    "hash": "c17a1d3d74d7b967d45ecae4e6ca475b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/contextInjection.ts": {
+    "mtime": 1778829897.153836,
+    "hash": "2544c554a2f3135067c515522e174f09"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/tabs.ts": {
+    "mtime": 1778830209.3937857,
+    "hash": "4cba23cc26ba2e4a288bed35bc92826d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/panes.ts": {
+    "mtime": 1774280158.6424084,
+    "hash": "37540ba59a99a7bb5e0d5f0c5c4155d6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/types/claudeMd.ts": {
+    "mtime": 1774280158.641983,
+    "hash": "220d6631aa0274b0a078adac6f294f22"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/contexts/useTabUIContext.ts": {
+    "mtime": 1774280158.638562,
+    "hash": "474daa1b073c47606fc52258f4242bf2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/contexts/TabUIContext.tsx": {
+    "mtime": 1774280158.6384864,
+    "hash": "0e226d952a21598c9803513e7bafd1fd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/constants/cssVariables.ts": {
+    "mtime": 1774280158.638221,
+    "hash": "61d0c06be1f78681c1e6c6a15982e63e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/constants/layout.ts": {
+    "mtime": 1774280158.6382918,
+    "hash": "a6bab829ba89e728f4fdbf1b70cbd7ef"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/constants/teamColors.ts": {
+    "mtime": 1774280158.638369,
+    "hash": "9a89846e12af892b3fea25d6022f1e40"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/lastOutputDetector.ts": {
+    "mtime": 1774280158.6435277,
+    "hash": "f66930c0d97929a23022280ccfe752fa"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/groupTransformer.ts": {
+    "mtime": 1778829897.156232,
+    "hash": "0c780307e3896f17cbab02d5780c8008"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/dateGrouping.ts": {
+    "mtime": 1778830209.3939774,
+    "hash": "5797ca70209383ded6b183e6b92e500a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/modelExtractor.ts": {
+    "mtime": 1774280158.6435962,
+    "hash": "4dcc5c87469ed541867f7edc1800a7ab"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/slashCommandExtractor.ts": {
+    "mtime": 1774280158.6438959,
+    "hash": "84f6c22a57f1e1b3e144d64d9a9ceccd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/sessionExporter.ts": {
+    "mtime": 1774280158.6438162,
+    "hash": "b4ffd8e8afeff71edb638d1dd7e6f24f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/claudeMdTracker.ts": {
+    "mtime": 1775847228.0789528,
+    "hash": "3829455ff8e3dcd6d6276287da13e2c3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/keyboardUtils.ts": {
+    "mtime": 1774280158.643455,
+    "hash": "4eacf6faed2aa912cb05d467db8ead6b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/pathDisplay.ts": {
+    "mtime": 1774280158.6436625,
+    "hash": "8686624a72408fd161fe33f728c4e220"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/contextTracker.ts": {
+    "mtime": 1778829897.1548269,
+    "hash": "d4fc4d37b52e7bc0fc6ed362c7dbdd2b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/aiGroupHelpers.ts": {
+    "mtime": 1774280158.642674,
+    "hash": "365f1ed011888233f1abe0c5f08b31d0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/stringUtils.ts": {
+    "mtime": 1775847228.0798066,
+    "hash": "fa51a2fe481556f57277ad1c1502bd8a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/displaySummary.ts": {
+    "mtime": 1778829897.15566,
+    "hash": "21e65d6586205382801479dbf6caa67e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/displayItemBuilder.ts": {
+    "mtime": 1778829897.155238,
+    "hash": "d25951e352e8cc002d40150140ec1199"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/toolLinkingEngine.ts": {
+    "mtime": 1774280158.644046,
+    "hash": "8ac35de5c0dd779fda435ac81225bc1b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/formatters.ts": {
+    "mtime": 1774280158.6432822,
+    "hash": "6bed27f9170690692566a6e5a4cc53fd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/aiGroupEnhancer.ts": {
+    "mtime": 1778829897.1543856,
+    "hash": "01a0c1933033c8fe9af9efb010505a34"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/pathUtils.ts": {
+    "mtime": 1774280158.6437252,
+    "hash": "cb4d83a4be6983adac024a1e22bb57e5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/toolRendering/toolContentChecks.ts": {
+    "mtime": 1779060382.2895443,
+    "hash": "03224424651cb2565e396a44b149146f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/toolRendering/index.ts": {
+    "mtime": 1779060382.2892213,
+    "hash": "e8ad75b08b8de59ccfe60b3366ebddfb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/toolRendering/toolSummaryHelpers.ts": {
+    "mtime": 1774280158.6443043,
+    "hash": "0855456cb0f4fdae1ee483b409786e9d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/utils/toolRendering/toolTokens.ts": {
+    "mtime": 1774280158.6443763,
+    "hash": "2febd3f348d273044cf1c71b91e4eac3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/DateGroupedSessions.tsx": {
+    "mtime": 1775847228.0752683,
+    "hash": "a593aa32e0e4b93124f5fab88da5011c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/SessionContextMenu.tsx": {
+    "mtime": 1774280158.6379478,
+    "hash": "09167851eb8d08f7cff419bd8884871a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/SessionItem.tsx": {
+    "mtime": 1778830209.3910208,
+    "hash": "3f655f5082caece5e98b02d3f8cd4475"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/memory/MemorySection.tsx": {
+    "mtime": 1778830209.3913448,
+    "hash": "506087e25b80f3f27c7f75d56ac62a59"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/memory/OpenInMenu.tsx": {
+    "mtime": 1778830209.3915172,
+    "hash": "e1caa01dcf7d84cbb8df60fe79fc7693"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/sidebar/memory/MemoryEntryPreview.tsx": {
+    "mtime": 1778830209.39122,
+    "hash": "d7e040a3ac730b7ba121952042ff24e5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/SettingsView.tsx": {
+    "mtime": 1774280158.6364632,
+    "hash": "2b1851c27c78e09e800783969b76979e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/SettingsTabs.tsx": {
+    "mtime": 1774280158.6363888,
+    "hash": "35a4278ab65dc26ae3466be6cf0603a4"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/ConnectionSection.tsx": {
+    "mtime": 1778830209.3900824,
+    "hash": "45dfd814ef55a7d13fc642d9d7ad9952"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/GeneralSection.tsx": {
+    "mtime": 1774280158.6374543,
+    "hash": "570c492d9593b1b7f5210e56a62ad414"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/WorkspaceSection.tsx": {
+    "mtime": 1778830209.3905199,
+    "hash": "b0f7d64ee8ebc630535bc119d0c56824"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/AdvancedSection.tsx": {
+    "mtime": 1774280158.6372309,
+    "hash": "0dbe3c9c41b1405b23bab8fb1a447ca7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/NotificationsSection.tsx": {
+    "mtime": 1774280158.6375456,
+    "hash": "00983a347545ab4b689a1aae8b9d41d9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/sections/index.ts": {
+    "mtime": 1774280158.6377263,
+    "hash": "eb94ef2765d389ac8d796a594f315a17"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/components/SettingsSectionHeader.tsx": {
+    "mtime": 1774280158.6366463,
+    "hash": "91ab1e79f6e62865edfc7ffe1743ce0a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/components/SettingRow.tsx": {
+    "mtime": 1774280158.636577,
+    "hash": "43d371e305664097d2e17ce362fa7d6f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/components/SettingsToggle.tsx": {
+    "mtime": 1774280158.6367831,
+    "hash": "be5fef8ff15cd7d1a80d0e7b077bee6e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/components/index.ts": {
+    "mtime": 1774280158.6368465,
+    "hash": "b681300dd8f30684fe5e33c92416b408"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/components/SettingsSelect.tsx": {
+    "mtime": 1774280158.6367176,
+    "hash": "6f4c40d128f8d8008931305dc91713e3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/hooks/useSettingsConfig.ts": {
+    "mtime": 1774280158.63702,
+    "hash": "5e9580dc04ee6ef19e7e225b400ae2e2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/hooks/index.ts": {
+    "mtime": 1774280158.6369464,
+    "hash": "a41754ee5aaa815f197f6562918253d0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/hooks/useSettingsHandlers.ts": {
+    "mtime": 1774280158.637116,
+    "hash": "c8541b52d9b6667ae0d44227f7efef7f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/index.tsx": {
+    "mtime": 1774280158.6360538,
+    "hash": "a188060a52bff6f0d48ff113f0316890"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/types.ts": {
+    "mtime": 1774280158.6361165,
+    "hash": "82e5f2659d88c443a757e560a1600540"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/utils/trigger.ts": {
+    "mtime": 1775847228.0748823,
+    "hash": "69ddd976717094a7ab440826ab53bf07"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/utils/constants.ts": {
+    "mtime": 1774280158.6362252,
+    "hash": "62d14dea353a970a0996cc6107fd38e1"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/DynamicConfigSection.tsx": {
+    "mtime": 1774280158.6348424,
+    "hash": "a99e7338b176153c9102ee678b2f38a0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/TriggerPreview.tsx": {
+    "mtime": 1774280158.6355245,
+    "hash": "b242a69160649b76278b334f3cbc0b97"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/TriggerConfiguration.tsx": {
+    "mtime": 1774280158.6354558,
+    "hash": "4c472c38ef263ed422a884eab9d68c8e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/TriggerCardHeader.tsx": {
+    "mtime": 1774280158.6353233,
+    "hash": "559e6c6bf3c2482f04741fbacf7a68d0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/TriggerCard.tsx": {
+    "mtime": 1774280158.6352527,
+    "hash": "d82df2c5b4494b4f7f5be6b472765eb9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/SectionHeader.tsx": {
+    "mtime": 1774280158.6351836,
+    "hash": "cadde416154e9e833d31608089794842"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/RepositoryScopeSection.tsx": {
+    "mtime": 1774280158.6351213,
+    "hash": "21e9b53a62eec0d55c7cadf6f366c9b0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/ColorPaletteSelector.tsx": {
+    "mtime": 1774280158.6347604,
+    "hash": "4233c478a5f0801449b3ffa31dc4232f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/GeneralInfoSection.tsx": {
+    "mtime": 1774280158.634911,
+    "hash": "7acb2c31e2ab328b2cbf9e995b42579a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/ModeSelector.tsx": {
+    "mtime": 1774280158.6350532,
+    "hash": "3e2b36c37084a2f4632f4f15c8737016"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/AddTriggerForm.tsx": {
+    "mtime": 1774280158.6346862,
+    "hash": "7a70d57c50b4cca44421b59d9edfcdb5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/components/IgnorePatternsSection.tsx": {
+    "mtime": 1774280158.6349819,
+    "hash": "c13deef516a0919a14e31bf018c88ff0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/hooks/useRepositoryLookup.ts": {
+    "mtime": 1774280158.6357868,
+    "hash": "01c24cc2c030fdd31695982b6b47f429"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/hooks/useTriggerForm.ts": {
+    "mtime": 1774280158.6359885,
+    "hash": "4b6bb3ecbf27da6bdcf7e7b25514c1c3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/hooks/useAddTriggerFormHandlers.ts": {
+    "mtime": 1774280158.6356454,
+    "hash": "7eb9db6b7cbf9690a7f5644a9145e000"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/hooks/useTriggerCardState.ts": {
+    "mtime": 1774280158.635915,
+    "hash": "b427591c62e116474cc9db698a32e585"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/settings/NotificationTriggerSettings/hooks/useAddTriggerFormState.ts": {
+    "mtime": 1774280158.6357176,
+    "hash": "974dddf135134935554730ca961b5cc2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/memory/FrontmatterCard.tsx": {
+    "mtime": 1778830209.3892872,
+    "hash": "cc757640117a9d687ed24b058b854cc6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/memory/frontmatter.ts": {
+    "mtime": 1778830209.3896868,
+    "hash": "aa028d1a88995b48bed211f0ddefd65b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/memory/MemoryView.tsx": {
+    "mtime": 1778830209.38952,
+    "hash": "eb66ec3687bd3160d082e701e12818a9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/CompactBoundary.tsx": {
+    "mtime": 1774280158.6250968,
+    "hash": "cf79ba102e624b34286b03ac8ef86adf"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/UserChatGroup.tsx": {
+    "mtime": 1775847228.0702178,
+    "hash": "5a9bf096ffe8ba1a09e620e7e96f7992"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/AIChatGroup.tsx": {
+    "mtime": 1774280158.6245532,
+    "hash": "6e8c3d45320f550a53f0f0b267e07388"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SystemChatGroup.tsx": {
+    "mtime": 1774280158.6279814,
+    "hash": "e5b8ce94006b24199381962bcf48c208"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/ChatHistoryItem.tsx": {
+    "mtime": 1775847228.069244,
+    "hash": "ee749b7650f10a23e9e2d6a2af1afe42"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/ChatHistoryLoadingState.tsx": {
+    "mtime": 1774280158.6250148,
+    "hash": "524107c08221fd213f4da7fa5960ee67"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/LastOutputDisplay.tsx": {
+    "mtime": 1777839233.4941304,
+    "hash": "26b2bfb61ac5f961f674ba977bde2bfc"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/ContextBadge.tsx": {
+    "mtime": 1774280158.6252446,
+    "hash": "e585cdb619d49195c9bc2b557a870b94"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/DisplayItemList.tsx": {
+    "mtime": 1778829897.1524146,
+    "hash": "8d342d94e0c1d2c55fef612f7e770455"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/markdownComponents.tsx": {
+    "mtime": 1775847228.0720267,
+    "hash": "1fc73e7c57c6e50ffc203e39e7b8e605"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/searchHighlightUtils.ts": {
+    "mtime": 1774280158.6300414,
+    "hash": "512eb50a82b8bc14031fc051098cc576"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/ChatHistory.tsx": {
+    "mtime": 1775847228.0689588,
+    "hash": "4d47660c6d571b46d3e1435b914fbf85"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/ChatHistoryEmptyState.tsx": {
+    "mtime": 1774280158.624853,
+    "hash": "7bdc8cb29e58fd2d7256feda2f3f77e7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/MermaidViewer.tsx": {
+    "mtime": 1777839233.4943695,
+    "hash": "7a2a78867e03e1d430142c42432114d3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/MarkdownViewer.tsx": {
+    "mtime": 1775847228.0722322,
+    "hash": "1016b510576de4c341891447b2961068"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/DiffViewer.tsx": {
+    "mtime": 1774280158.630303,
+    "hash": "4acaa2e3590905a524819bd355087db3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/CodeBlockViewer.tsx": {
+    "mtime": 1774280158.630171,
+    "hash": "70c89cdcc2c9361a40e7768e1b04808e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/index.ts": {
+    "mtime": 1775847228.0725691,
+    "hash": "3b8ae94ac2a8a9257ad46a21b53d7825"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/viewers/syntaxHighlighter.ts": {
+    "mtime": 1779060382.2877142,
+    "hash": "c05e3d755952b824e4836ef3e13b7196"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/BaseItem.tsx": {
+    "mtime": 1775847228.0707617,
+    "hash": "4ded03a713147617b5e3080c6573638f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/TeammateMessageItem.tsx": {
+    "mtime": 1775847228.0715015,
+    "hash": "19dfccc0d3ffaed3500cf8763bc18a79"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/TextItem.tsx": {
+    "mtime": 1775847228.071762,
+    "hash": "89c9ba7f69955a4f1c2a02b9488f4f22"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/ThinkingItem.tsx": {
+    "mtime": 1774280158.6290846,
+    "hash": "471d081ccfdccdaf9238993e2774187a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/MetricsPill.tsx": {
+    "mtime": 1775847228.0710218,
+    "hash": "05fa9af22f58ba639dcc4072407462e8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/LinkedToolItem.tsx": {
+    "mtime": 1779060382.2869523,
+    "hash": "14718923b5b1ac119bd1281808cd847c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/SubagentItem.tsx": {
+    "mtime": 1775847228.071185,
+    "hash": "129fc5be95b41b29c3eda1feb2b897ba"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/baseItemHelpers.ts": {
+    "mtime": 1774280158.6291542,
+    "hash": "c350a423ec5d20ea55973feeaf4b7dad"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/ExecutionTrace.tsx": {
+    "mtime": 1774280158.628418,
+    "hash": "29671098af8d65a6229bf82df52763ad"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/SlashItem.tsx": {
+    "mtime": 1774280158.6286662,
+    "hash": "7c96820d1f992536ec2c2abefd56dc68"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/WriteToolViewer.tsx": {
+    "mtime": 1774280158.6297164,
+    "hash": "70dc42861a4737ecfffb6ed52799b2f5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/SkillToolViewer.tsx": {
+    "mtime": 1774280158.6295745,
+    "hash": "c4a0faf00235ca0093ec30dcbe2afac8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/DefaultToolViewer.tsx": {
+    "mtime": 1774280158.6293535,
+    "hash": "66ba5a9e1431fa660506a954f1ae03aa"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/ToolErrorDisplay.tsx": {
+    "mtime": 1774280158.6296396,
+    "hash": "99ed6905d60211e84a359b6c8fdb611b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/ReadToolViewer.tsx": {
+    "mtime": 1774280158.6295066,
+    "hash": "93a3d29fdf9624c435ab7ca718caea55"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/renderHelpers.tsx": {
+    "mtime": 1774280158.6298668,
+    "hash": "2bdac4940a2e79d8bfbe967f530070c6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/index.ts": {
+    "mtime": 1779060382.2873847,
+    "hash": "b949a72eb858f1c4860ccd76f81d4c69"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/CollapsibleOutputSection.tsx": {
+    "mtime": 1774280158.629276,
+    "hash": "d0dc78a6dbc721487e45aa6aedc8f95c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/items/linkedTool/EditToolViewer.tsx": {
+    "mtime": 1774280158.6294308,
+    "hash": "9ca5797137dc310592ae26f9a7aaffed"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/index.tsx": {
+    "mtime": 1774280158.6270995,
+    "hash": "70baf107ff899dbf154c927cd6b9260f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/types.ts": {
+    "mtime": 1774280158.6277282,
+    "hash": "14d7511bb1f1437e1ed3aff68a8d4b4d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/utils/pathParsing.ts": {
+    "mtime": 1774280158.6279075,
+    "hash": "d200a228326f3e7c3d37a02a12829e69"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/utils/formatting.ts": {
+    "mtime": 1774280158.627839,
+    "hash": "d9b92940d7ce06062e1cc28a00147558"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/UserMessagesSection.tsx": {
+    "mtime": 1774280158.6269708,
+    "hash": "7630657bb43c30f47cbdc74009e845a2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/MentionedFilesSection.tsx": {
+    "mtime": 1774280158.6264236,
+    "hash": "55a8abfdec4ff5378fc2c4c15d9ce0d8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/SessionContextHeader.tsx": {
+    "mtime": 1774280158.6266217,
+    "hash": "b149a5874b5123b83b31244c48862f11"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/RankedInjectionList.tsx": {
+    "mtime": 1778829897.1527064,
+    "hash": "f9c00e6a86e994c7d5c7ee1d5fdacc11"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/CollapsibleSection.tsx": {
+    "mtime": 1774280158.6261919,
+    "hash": "c646785c592b451969584787ece69368"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/FlatInjectionList.tsx": {
+    "mtime": 1774280158.626339,
+    "hash": "accc510d3602bf0ce78f2278e4e45d69"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/SessionContextHelpTooltip.tsx": {
+    "mtime": 1774280158.6267023,
+    "hash": "04e6a98c29b807af58199ea6a7a326e7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/TaskCoordinationSection.tsx": {
+    "mtime": 1774280158.6267767,
+    "hash": "1783d921f6a9f7091e91eaff9f2fb3e6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/ClaudeMdFilesSection.tsx": {
+    "mtime": 1774280158.6260402,
+    "hash": "2016dd675002d8e35f3df957ab5ebae3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/ThinkingTextSection.tsx": {
+    "mtime": 1774280158.6268427,
+    "hash": "0c4422c48477fd7a0da5659411587464"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/ToolOutputsSection.tsx": {
+    "mtime": 1774280158.626908,
+    "hash": "3f47d79621801664a75c77ba0308937e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/components/ClaudeMdSection.tsx": {
+    "mtime": 1774280158.6261165,
+    "hash": "829921373e7673b86df37ac838d81081"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/ToolOutputItem.tsx": {
+    "mtime": 1774280158.6275845,
+    "hash": "33b78fbaa075c7347fcf636c6c08dc62"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/TaskCoordinationItem.tsx": {
+    "mtime": 1774280158.6273687,
+    "hash": "57922cd297ef49d3aa9130c963ba09f0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/ClaudeMdItem.tsx": {
+    "mtime": 1774280158.627218,
+    "hash": "4e1eb65b831751665cad671ded8dc3ca"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/UserMessageItem.tsx": {
+    "mtime": 1774280158.6276538,
+    "hash": "eeee542a578f3d870937cdc21d499b7b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/ThinkingTextItem.tsx": {
+    "mtime": 1774280158.6274507,
+    "hash": "531f1418f2bf4319fd1513755868a43c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/MentionedFileItem.tsx": {
+    "mtime": 1774280158.627291,
+    "hash": "82de41a71a78fb7a11a234317eae5681"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/items/ToolBreakdownItem.tsx": {
+    "mtime": 1774280158.627522,
+    "hash": "9d6c70b098dfae0ab56a230acf4a65e5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/DirectoryTree/buildDirectoryTree.ts": {
+    "mtime": 1774280158.6258447,
+    "hash": "1f2422c651340ea36f1b894e4f8e4ee5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/DirectoryTree/types.ts": {
+    "mtime": 1774280158.6259143,
+    "hash": "ebef75960824ed889156155908d175d8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/chat/SessionContextPanel/DirectoryTree/DirectoryTreeNode.tsx": {
+    "mtime": 1774280158.6257675,
+    "hash": "49f2aba391d0521e35d9da50bde52f2a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/PaneContainer.tsx": {
+    "mtime": 1774280158.6330261,
+    "hash": "a3b671e149b30422944a17cf20a0f9dc"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/PaneResizeHandle.tsx": {
+    "mtime": 1774280158.6332238,
+    "hash": "09e24ab9bc9356e21463cdd81d6317cd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/PaneView.tsx": {
+    "mtime": 1774280158.6333735,
+    "hash": "4de760d8414aff720da21a0186898831"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/PaneContent.tsx": {
+    "mtime": 1778830209.3884952,
+    "hash": "02ed556e20eff87ec448f33890b8b67d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/TabContextMenu.tsx": {
+    "mtime": 1775847228.074463,
+    "hash": "2d8e560e05797ab6d0b40b8bbfc9a936"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/TabbedLayout.tsx": {
+    "mtime": 1774280158.6340423,
+    "hash": "e3de910659eb10bfd7adb90de91fd770"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/SessionTabContent.tsx": {
+    "mtime": 1774280158.6334493,
+    "hash": "43a8c16a9fc8f2d09f6b41361edafc3e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/MoreMenu.tsx": {
+    "mtime": 1777839233.494777,
+    "hash": "667047992402e2aa30c5037ba8bdd5bd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/MiddlePanel.tsx": {
+    "mtime": 1774280158.632851,
+    "hash": "080ae23d069ee1833cd59b20ee7a99fd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/Sidebar.tsx": {
+    "mtime": 1778830209.3886878,
+    "hash": "d08571be52193b7e7f2750ffc03002cd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/PaneSplitDropZone.tsx": {
+    "mtime": 1774280158.6332977,
+    "hash": "d34fd56823b6437704546ed5886124ac"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/SortableTab.tsx": {
+    "mtime": 1778830209.3890777,
+    "hash": "aaa720f43f4da7d58548c4f738d29dc5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/SidebarHeader.tsx": {
+    "mtime": 1774280158.6336331,
+    "hash": "13bc3fd099938451ae6f18ad5ee9d98c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/TabBar.tsx": {
+    "mtime": 1775847228.0738134,
+    "hash": "02d156de47c64dbf17d42b7388bd4bdc"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/layout/CustomTitleBar.tsx": {
+    "mtime": 1774280158.6327686,
+    "hash": "473d50d946ba07175bb2041de357c3ea"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/search/CommandPalette.tsx": {
+    "mtime": 1775847342.0061643,
+    "hash": "54ef335c8beb2c7dcf2c04608930bc88"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/search/SearchBar.tsx": {
+    "mtime": 1774280158.63448,
+    "hash": "0b8c3bc9e4e6a4b38e6763374f70030c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/dashboard/DashboardView.tsx": {
+    "mtime": 1774280158.6323729,
+    "hash": "2367109ab1ec9f13af0677bb6ccbd87d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/ConfirmDialog.tsx": {
+    "mtime": 1774280158.63079,
+    "hash": "6ec804b22b51e9eb4eb07000968eec2f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/OngoingIndicator.tsx": {
+    "mtime": 1774280158.6313143,
+    "hash": "19cd12dd74e70b2d05446cbef4fea29d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/TokenUsageDisplay.tsx": {
+    "mtime": 1775847228.072973,
+    "hash": "64636c2a52a418d397f346a5bbbdcab5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/CopyablePath.tsx": {
+    "mtime": 1774280158.6310833,
+    "hash": "4307517e64e9c0ed9571dd91ae11966a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/RepositoryDropdown.tsx": {
+    "mtime": 1774280158.6313992,
+    "hash": "01ca7c1ebd64602fedc64008ab5efdc4"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/UpdateBanner.tsx": {
+    "mtime": 1774280158.6319482,
+    "hash": "ca86cb526f8d682e3ebb860d01122a25"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/WorktreeBadge.tsx": {
+    "mtime": 1774280158.6322045,
+    "hash": "4a10de309f237ce8bc958a02af646b14"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/ContextSwitchOverlay.tsx": {
+    "mtime": 1774280158.6309369,
+    "hash": "6e7b3a6f3fe92b81e5bd6707df552a74"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/ConnectionStatusBadge.tsx": {
+    "mtime": 1774280158.6308606,
+    "hash": "8c9930836b61924fb527f264a6f1e004"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/CopyButton.tsx": {
+    "mtime": 1774280158.631015,
+    "hash": "8c7b7db39f80a10ecb657c5cba118a91"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/ExportDropdown.tsx": {
+    "mtime": 1774280158.6312435,
+    "hash": "3be0b2ab7e0b6a14a73f5b34fe43e25c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/UpdateDialog.tsx": {
+    "mtime": 1774280158.6320508,
+    "hash": "52651b54b06a504599badabdd70dde0a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/ErrorBoundary.tsx": {
+    "mtime": 1774280158.6311536,
+    "hash": "c7c3e36b3a2a174bc531a67ff0e17892"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/common/WorkspaceIndicator.tsx": {
+    "mtime": 1774280158.6321335,
+    "hash": "c45e9d6ae4a03eb36ff3af8167be6abd"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/notifications/NotificationsView.tsx": {
+    "mtime": 1774280158.6342628,
+    "hash": "3e77f753616b274359bba3652754df1c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/notifications/NotificationRow.tsx": {
+    "mtime": 1774280158.634164,
+    "hash": "4ed7751e7414490c946169722d7949bc"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useTabUI.ts": {
+    "mtime": 1774280158.639313,
+    "hash": "98af312ba78668511318cde266da8c75"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useZoomFactor.ts": {
+    "mtime": 1774280158.6395185,
+    "hash": "d86cdc6011811173b91e1d46652ac8e9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useAutoScrollBottom.ts": {
+    "mtime": 1774280158.6390164,
+    "hash": "e15e0f53023877d2cc009a5b82de497c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useVisibleAIGroup.ts": {
+    "mtime": 1774280158.6394522,
+    "hash": "62951870db57281ad60c65562cd3d527"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useTheme.ts": {
+    "mtime": 1775847228.0759046,
+    "hash": "1714b76418459ce20078356ba007eafa"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useTabNavigationController.ts": {
+    "mtime": 1774280158.6392276,
+    "hash": "766931ab78ec6c1b4c0fc0aff1a94210"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/useKeyboardShortcuts.ts": {
+    "mtime": 1774280158.6391387,
+    "hash": "9ead886fd3af4ad528c7bec99e9e3040"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/hooks/navigation/utils.ts": {
+    "mtime": 1774280158.6388853,
+    "hash": "c6171a127ddcc2223d5527b950dd80b6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/api/index.ts": {
+    "mtime": 1774280158.6242676,
+    "hash": "ceba9359a2a9f3e2979db01f02774990"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/api/httpClient.ts": {
+    "mtime": 1778830209.3879929,
+    "hash": "36d205ff4272b6c4ec2cac00ecd1da31"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/services/contextStorage.ts": {
+    "mtime": 1774280158.639858,
+    "hash": "b4a48377551336f6e6e34272842f126b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/types.ts": {
+    "mtime": 1778830209.3935404,
+    "hash": "fab0a402353a13c3f0c03d0827c9ecd1"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/index.ts": {
+    "mtime": 1778830209.391802,
+    "hash": "e7db3fedfbe2b137215ebd596b58e234"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/tabSlice.ts": {
+    "mtime": 1779060382.2885935,
+    "hash": "0a732ecd3e9af2fc176b960e2eb844bf"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/connectionSlice.ts": {
+    "mtime": 1778830209.392417,
+    "hash": "765b36d46b48b949e80eb2cb6c9f1ad3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/paneSlice.ts": {
+    "mtime": 1775847228.0765126,
+    "hash": "228d804918d96ff4b855dd7ad5ae74e5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/projectSlice.ts": {
+    "mtime": 1775847228.0767713,
+    "hash": "3d9ac7e87dbc96d5d345a8103817b52f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/conversationSlice.ts": {
+    "mtime": 1774280158.6404397,
+    "hash": "f3545180ac92df22f4564c55f5de84de"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/sessionSlice.ts": {
+    "mtime": 1779060382.2883983,
+    "hash": "9f07ef9d4e3b91d4d7a807c795fbe2d2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/uiSlice.ts": {
+    "mtime": 1774280158.6414475,
+    "hash": "0f43205e0305a2f1383560289cc819c0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/notificationSlice.ts": {
+    "mtime": 1774280158.6405537,
+    "hash": "d564cdef780965a381f65890d3ffe342"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/memorySlice.ts": {
+    "mtime": 1778830209.3926039,
+    "hash": "f2c87ab1ba2aa1cca859a0dfc2c60b0d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/configSlice.ts": {
+    "mtime": 1774280158.6401815,
+    "hash": "e85af4992b964612a0ddfa144e78b568"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/subagentSlice.ts": {
+    "mtime": 1774280158.641104,
+    "hash": "e4c396dd4e398345ffdb188a543d1e0f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/tabUISlice.ts": {
+    "mtime": 1774280158.6413798,
+    "hash": "b431d0584b3911c784e9d6a2668fcc2a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/contextSlice.ts": {
+    "mtime": 1774280158.6403475,
+    "hash": "6377af6069828c9be4062a05340661df"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/sessionDetailSlice.ts": {
+    "mtime": 1779060382.2882297,
+    "hash": "6f3ac2009e19232013c353270c99fc07"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/updateSlice.ts": {
+    "mtime": 1774280158.6415124,
+    "hash": "2f3ba40075ab16235f15205f8f62e902"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/slices/repositorySlice.ts": {
+    "mtime": 1774280158.640818,
+    "hash": "0fbd811418e2443bd04ba907a3d4eb0c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/utils/batchAsync.ts": {
+    "mtime": 1775847228.0782897,
+    "hash": "3e190fa0d9f24603a720d7c77d421bad"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/utils/paneHelpers.ts": {
+    "mtime": 1774280158.6416843,
+    "hash": "11a3d3cdada6a3096da0d483008c51cb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/utils/stateResetHelpers.ts": {
+    "mtime": 1779060382.2888987,
+    "hash": "f4229769613ec37d9d8901da62ea3740"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/utils/pathResolution.ts": {
+    "mtime": 1774280158.6417491,
+    "hash": "e9e0857a27bd99d119adb679dcf3f2a7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/types/notifications.ts": {
+    "mtime": 1778830209.3948793,
+    "hash": "006f36c2bca2c2155419abd97172ef16"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/types/api.ts": {
+    "mtime": 1778830209.39425,
+    "hash": "586c17f680c22cb134a28fc513b45494"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/types/visualization.ts": {
+    "mtime": 1774280158.6456516,
+    "hash": "09cd950f216a45a1462a1b1df70d5179"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/types/index.ts": {
+    "mtime": 1778830209.3944583,
+    "hash": "a7f61c48122911b0f481d93331a84ed3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/constants/triggerColors.ts": {
+    "mtime": 1774280158.6448796,
+    "hash": "d3243abd0cfa846eae333ffea2e14959"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/constants/trafficLights.ts": {
+    "mtime": 1774280158.6448054,
+    "hash": "013049578cbcc3e15b7275efac0d215a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/constants/cache.ts": {
+    "mtime": 1774280158.6446683,
+    "hash": "dcb61aa7cc3326389b951456c0affb49"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/constants/window.ts": {
+    "mtime": 1774280158.6449473,
+    "hash": "6b92a82b3e54b18d95965f32514bd201"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/constants/index.ts": {
+    "mtime": 1774280158.6447377,
+    "hash": "889bd47132df42cd72919401140c55ee"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/tokenFormatting.ts": {
+    "mtime": 1774280158.6462562,
+    "hash": "f9c04117424288e68097ce4fc8fac668"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/sessionDetailResponse.ts": {
+    "mtime": 1777839233.4959164,
+    "hash": "4f4658134203f1bffd7171574b4e3541"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/errorHandling.ts": {
+    "mtime": 1774280158.6458542,
+    "hash": "cfe6550f9b54dd6c21021064a1c9fd57"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/contentSanitizer.ts": {
+    "mtime": 1774280158.6457827,
+    "hash": "69cf342c5dce45c0b3f93f093060e315"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/markdownTextSearch.ts": {
+    "mtime": 1774280158.6460316,
+    "hash": "35816f40fb328c9bfc832d3e821d4959"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/sessionIdValidator.ts": {
+    "mtime": 1775846132.343583,
+    "hash": "ed504117ecdeebcb24e73184bd883e6b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/logger.ts": {
+    "mtime": 1774280158.6459262,
+    "hash": "c6fbbbc7e1cdc7330f07fa44ba00af87"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/modelParser.ts": {
+    "mtime": 1774280158.646112,
+    "hash": "67732a61881d662a535fe6269dbd1661"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/teammateMessageParser.ts": {
+    "mtime": 1774280158.646182,
+    "hash": "81e237fa62fc2391474a5b66b631fb98"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/utils/memoryIndex.ts": {
+    "mtime": 1778830209.395011,
+    "hash": "4565c978ead06e92909fbab5bc98194a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/index.ts": {
+    "mtime": 1778830209.379122,
+    "hash": "b02b9558ffedec227b40169e5550b756"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/standalone.ts": {
+    "mtime": 1779057568.6954255,
+    "hash": "cd12ea33f5ba1cac4edfbfa1c005c90f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/types/chunks.ts": {
+    "mtime": 1778829897.1507719,
+    "hash": "09cda4c29a91052917b9f822a7010067"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/types/messages.ts": {
+    "mtime": 1774280158.6219795,
+    "hash": "fcd59bc2fbcadf8d9c178a864f8d6c16"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/types/jsonl.ts": {
+    "mtime": 1778829897.1512768,
+    "hash": "8cbabac85bb1ba460886555f623c3272"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/types/index.ts": {
+    "mtime": 1774280158.621725,
+    "hash": "a4662e802360fca9cc7ee4c114a2dbf7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/types/domain.ts": {
+    "mtime": 1778830209.3864088,
+    "hash": "41cbefbbd9d4822a05824756e9fa7812"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/constants/worktreePatterns.ts": {
+    "mtime": 1774280158.6121805,
+    "hash": "39170852d60df9f00d4a6f85d8fe560f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/constants/messageTags.ts": {
+    "mtime": 1774280158.6120543,
+    "hash": "4644cb11e28ccae36ac114b6bdf1e61f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/sessionStateDetection.ts": {
+    "mtime": 1774280158.623073,
+    "hash": "042ee690b8dddd95ba9a0d498380c419"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/pathDecoder.ts": {
+    "mtime": 1774280158.6228476,
+    "hash": "b281369e1891f61edd5834889d45e05a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/openInLauncher.ts": {
+    "mtime": 1778830209.3869324,
+    "hash": "abaf9ae9cedf308a2ae6fe38acc75f15"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/timelineGapFilling.ts": {
+    "mtime": 1774280158.623139,
+    "hash": "1e0161dc3f869b68f1aa3c6b81896eb7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/regexValidation.ts": {
+    "mtime": 1774280158.623002,
+    "hash": "e2807dd8b84c67753eff975a16064b6b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/contextAccumulator.ts": {
+    "mtime": 1774280158.6221044,
+    "hash": "99e48328dd93e6072029b1d2657e3d53"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/jsonl.ts": {
+    "mtime": 1778830209.386672,
+    "hash": "7573f7062de1ee6ec050da7e47fb1349"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/tokenizer.ts": {
+    "mtime": 1774280158.623216,
+    "hash": "ee1e952ff384c4e1f1ea0b64384ea6f8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/toolExtraction.ts": {
+    "mtime": 1774280158.6232874,
+    "hash": "06f38227d8361996396c9c4f34157e9a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/metadataExtraction.ts": {
+    "mtime": 1774280158.6227272,
+    "hash": "95c5e66ea63e6fd64229be78b604da5c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/utils/pathValidation.ts": {
+    "mtime": 1774280158.6229327,
+    "hash": "247ba9e566b97f6720a9bb83770ed1e9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/validation.ts": {
+    "mtime": 1774280158.6139393,
+    "hash": "bda318a6cafb00b1886b0805abddd499"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/projects.ts": {
+    "mtime": 1774280158.6130855,
+    "hash": "dd72efb5e3fbd6b150de8e1b1925dade"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/ssh.ts": {
+    "mtime": 1778830209.3773263,
+    "hash": "79cfbfe74ae8bf5d2127167aff832bb4"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/search.ts": {
+    "mtime": 1775846132.3220518,
+    "hash": "16440f399fad6f777366d782883a486b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/notifications.ts": {
+    "mtime": 1774280158.6128547,
+    "hash": "bee2ef99a9b9fa879231d3b0bd231d41"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/updater.ts": {
+    "mtime": 1774280158.6137733,
+    "hash": "a9fa5c10963c746d2866a9fcf36e3bf3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/utility.ts": {
+    "mtime": 1774280158.613859,
+    "hash": "c862c34484edd1922417f8833bbe11e8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/events.ts": {
+    "mtime": 1774280158.6125484,
+    "hash": "2c195ebb7921a34c41841ad7cac44397"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/memory.ts": {
+    "mtime": 1778830209.3748531,
+    "hash": "bc01beb58ec88816d58798b2546354e9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/index.ts": {
+    "mtime": 1778830209.374668,
+    "hash": "37f76e6a46907b66c00c90754fda17ee"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/config.ts": {
+    "mtime": 1774280158.612335,
+    "hash": "335fb249a680c590537cb0098b0dec5c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/subagents.ts": {
+    "mtime": 1774280158.6137004,
+    "hash": "e92c5c6421942996faf8cec79dc02549"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/http/sessions.ts": {
+    "mtime": 1778829897.1472654,
+    "hash": "99893f4b87b8a9e01e0792491c5b3094"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/validation.ts": {
+    "mtime": 1774280158.6156049,
+    "hash": "7c03c45e2f28ab387dc73ced55e843f8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/configValidation.ts": {
+    "mtime": 1778830209.379586,
+    "hash": "d61f2295ffabc6b8aa7a797d687e3378"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/projects.ts": {
+    "mtime": 1774280158.6150343,
+    "hash": "d4d6480dc242dbffa5f3f7f609f3ef7c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/ssh.ts": {
+    "mtime": 1778830209.3802593,
+    "hash": "fb0fa6618ae126b12c66c46922aba215"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/search.ts": {
+    "mtime": 1775847293.2648504,
+    "hash": "53f9430ff2b3d28d0370abfa84cb199d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/notifications.ts": {
+    "mtime": 1774280158.6149497,
+    "hash": "192863fd8a1158302806472bfe59b5aa"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/context.ts": {
+    "mtime": 1774280158.6145604,
+    "hash": "709b10366bb4b93e94342702d1a2b6ee"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/updater.ts": {
+    "mtime": 1774280158.6154547,
+    "hash": "de1cc512606159aa452e9bd12b68cd39"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/handlers.ts": {
+    "mtime": 1778830209.3798227,
+    "hash": "7b8afb3560c784e43a98d0170d53707a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/utility.ts": {
+    "mtime": 1774280158.6155343,
+    "hash": "529d0b4a23473f0387241c2c5bf34eca"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/memory.ts": {
+    "mtime": 1778830209.3800051,
+    "hash": "e5a7b49ef0dc47bf2d3f78c84104976b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/window.ts": {
+    "mtime": 1774280158.615711,
+    "hash": "25c308c9c736dacc549226a467ee10b8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/guards.ts": {
+    "mtime": 1774280158.614787,
+    "hash": "71cf279f6989eb99d30a17826cda4e29"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/config.ts": {
+    "mtime": 1774280158.6143458,
+    "hash": "29263cfd5b60a26d97a244d51304fbe6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/subagents.ts": {
+    "mtime": 1774280158.6153822,
+    "hash": "eea19785778329c85496bb3bfb560770"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/sessions.ts": {
+    "mtime": 1778829897.1480527,
+    "hash": "280f126fb6510828455c0d0d93cb38fe"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/index.ts": {
+    "mtime": 1774280158.6189907,
+    "hash": "3d06279d76760515ddc27e3fe905e0c5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/SemanticStepExtractor.ts": {
+    "mtime": 1774280158.616646,
+    "hash": "7233038ecc0e0b45d347e93ac2c48777"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/SubagentDetailBuilder.ts": {
+    "mtime": 1774280158.616811,
+    "hash": "58218d3c768cfbe17f445bd471e7eff5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ConversationGroupBuilder.ts": {
+    "mtime": 1774280158.6164804,
+    "hash": "3111c05a5f7f1bccca3c7e9e63c12eaf"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ToolExecutionBuilder.ts": {
+    "mtime": 1774280158.6168811,
+    "hash": "bd48571eaf12e7bec1d5e5ffa8b09af9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/SemanticStepGrouper.ts": {
+    "mtime": 1774280158.6167355,
+    "hash": "669cd39b564910a53266f82b00b32ff6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ChunkFactory.ts": {
+    "mtime": 1774280158.6163921,
+    "hash": "4c03ab10f868109facc533e742521839"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ProcessLinker.ts": {
+    "mtime": 1774280158.616561,
+    "hash": "463f0ab9013a5422e7d7cd4ccd7701b1"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ToolResultExtractor.ts": {
+    "mtime": 1774280158.6169534,
+    "hash": "5cacf8cc43a60fc7a1b82ac6c4e57ca5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ChunkBuilder.ts": {
+    "mtime": 1778829897.1484158,
+    "hash": "bd4feafd86d3b0685fea56b66b498924"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/ToolSummaryFormatter.ts": {
+    "mtime": 1774280158.617051,
+    "hash": "bf23d36acca0bdea8b155b52ff5c8585"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/analysis/index.ts": {
+    "mtime": 1774280158.617145,
+    "hash": "a4b9d07400b519bd5abb13bde6660c63"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SessionContentFilter.ts": {
+    "mtime": 1774280158.617739,
+    "hash": "9c0802a2ec98952c8885ca1784cdac30"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SubagentResolver.ts": {
+    "mtime": 1774280158.6180995,
+    "hash": "587e63eca07e4ce88f72fa83399d1d8d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/ProjectPathResolver.ts": {
+    "mtime": 1774280158.6172974,
+    "hash": "3ceaaf8c4abe9f3174b663274e25b44a"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SessionSearcher.ts": {
+    "mtime": 1774280158.6179006,
+    "hash": "f9a585591463867a3a64c5aee1d06b61"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SearchTextCache.ts": {
+    "mtime": 1774280158.6175761,
+    "hash": "8e712971db5f3b27d1b2f8f42169575d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/ProjectScanner.ts": {
+    "mtime": 1778830209.380772,
+    "hash": "d7cd9a12a8927dc66194815c94e8d4ad"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/MemoryReader.ts": {
+    "mtime": 1778830209.3804467,
+    "hash": "cb7c9a70f9dbcec058d594d2a5b416ce"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SubagentLocator.ts": {
+    "mtime": 1774280158.6179945,
+    "hash": "c858e5d9c1621c25ab5e12fa88fca7e8"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SearchTextExtractor.ts": {
+    "mtime": 1774280158.6176572,
+    "hash": "b9ad75748fca05966a2824256c5cd39d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/SubprojectRegistry.ts": {
+    "mtime": 1774280158.618187,
+    "hash": "c2514219772025be3de9a0c7415a5fd6"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/WorktreeGrouper.ts": {
+    "mtime": 1774280158.618269,
+    "hash": "f2ef201343ed8b82c21eec552a12e5eb"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/discovery/index.ts": {
+    "mtime": 1778830209.3810089,
+    "hash": "cc95ccb54b146412124fadf7f4c2c4f7"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/GitIdentityResolver.ts": {
+    "mtime": 1778830209.3856447,
+    "hash": "5437affeaa260e287d003c503fee83a5"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/ClaudeMdReader.ts": {
+    "mtime": 1774280158.6208355,
+    "hash": "aaf7221828f0d68040ba902ee1f20f74"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/MessageClassifier.ts": {
+    "mtime": 1774280158.6210706,
+    "hash": "a5f9b03e72e634cc414b31a29a24a8c0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/AgentConfigReader.ts": {
+    "mtime": 1774280158.6205525,
+    "hash": "3d0268264bed1ebc6611d241da20b032"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/index.ts": {
+    "mtime": 1774280158.621285,
+    "hash": "ca99425fc4cef6923dbe4d757c5cbead"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/parsing/SessionParser.ts": {
+    "mtime": 1778829897.150022,
+    "hash": "1914eaa80819a5ed47e1683c2fda6862"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/SshConfigParser.ts": {
+    "mtime": 1778830209.3841279,
+    "hash": "315fd13d29c8c28d330cbcabf8329817"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/FileWatcher.ts": {
+    "mtime": 1778830209.38189,
+    "hash": "035163f1d2e82eaf620561630cc74214"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/UpdaterService.ts": {
+    "mtime": 1774280158.6203547,
+    "hash": "e9974a864d7a014b545ab041db815f5f"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/ServiceContext.ts": {
+    "mtime": 1778830209.3826027,
+    "hash": "e3106277b33a857c71dee655d13ff1bf"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/SshHostResolver.ts": {
+    "mtime": 1778830209.3849337,
+    "hash": "6385936327d1931eaf6e6a48ae8a7d25"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/SshFileSystemProvider.ts": {
+    "mtime": 1774280158.6201518,
+    "hash": "34b7e9e631554718feca82404f08930d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/SshConnectionManager.ts": {
+    "mtime": 1778830209.384758,
+    "hash": "f064312d5488868448c7cf6f48d453ba"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/ConfigManager.ts": {
+    "mtime": 1778830209.3812873,
+    "hash": "d54b9fc3af94e8b4de964f400ad9fc16"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/ServiceContextRegistry.ts": {
+    "mtime": 1774280158.6198611,
+    "hash": "170c7382dddaf17421f60210b66d9a96"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/LocalFileSystemProvider.ts": {
+    "mtime": 1774280158.619612,
+    "hash": "63c519cfc7937fa782ed2f5aa68834b0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/DataCache.ts": {
+    "mtime": 1777839233.493311,
+    "hash": "2566ba23dd3c6a35a09210ab6e50d6e0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/HttpServer.ts": {
+    "mtime": 1774280158.619542,
+    "hash": "f9637f7b2a6ed4b2a0cc837ec66529f9"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/TriggerManager.ts": {
+    "mtime": 1774280158.6202812,
+    "hash": "816810b4e34db3a811810fe753d24f94"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/FileSystemProvider.ts": {
+    "mtime": 1774280158.619354,
+    "hash": "898f263deb7cb733c257601debbf5bd3"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/NotificationManager.ts": {
+    "mtime": 1774280158.6197016,
+    "hash": "41915fe946758844c31605ef86bc0932"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/infrastructure/index.ts": {
+    "mtime": 1778830209.3851242,
+    "hash": "f11322f2c765f4884499dc29bc1afa23"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/ErrorTriggerTester.ts": {
+    "mtime": 1774280158.6187825,
+    "hash": "0f10e8dd387cf2b1607f250ce12a5cfc"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/ErrorDetector.ts": {
+    "mtime": 1774280158.6184695,
+    "hash": "5b371a599dc806292350ef9a0e750a91"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/TriggerMatcher.ts": {
+    "mtime": 1774280158.6188629,
+    "hash": "f791d2daf12f052abc592ecf0a03f4e0"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/ErrorMessageBuilder.ts": {
+    "mtime": 1774280158.6185496,
+    "hash": "e2f1285082dcf7312224ca6fadd9afff"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/index.ts": {
+    "mtime": 1774280158.6189277,
+    "hash": "3499869c8ce31c0195802c68062c533d"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/error/ErrorTriggerChecker.ts": {
+    "mtime": 1774280158.6186507,
+    "hash": "d3847ddf0c28def5be6b78ec60fba85e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/preload/index.ts": {
+    "mtime": 1778830209.3876946,
+    "hash": "b2679c65eaed31dac12aff005f2030be"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/preload/constants/ipcChannels.ts": {
+    "mtime": 1778830209.3872206,
+    "hash": "4134f6fc01e98609aac6b68b8348c069"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/CLAUDE.md": {
+    "mtime": 1774280158.611755,
+    "hash": "04eb918315073fd170e2bd23b8faa8ac"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/index.html": {
+    "mtime": 1774280158.6396835,
+    "hash": "7cec1414f4c5952524b2668d71ae6cb4"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/CLAUDE.md": {
+    "mtime": 1774280158.623793,
+    "hash": "b586aa472ab050dda6c861a327c7ae0e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/components/CLAUDE.md": {
+    "mtime": 1774280158.624402,
+    "hash": "421c992ec5bd7cdc1594359e3c8bf47c"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/store/CLAUDE.md": {
+    "mtime": 1774280158.639963,
+    "hash": "74378eef8c44d1b51db13c35a60b0026"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/shared/CLAUDE.md": {
+    "mtime": 1774280158.6445541,
+    "hash": "43315dbff98db8808eb54348e6185d76"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/CLAUDE.md": {
+    "mtime": 1774280158.6119041,
+    "hash": "34171e1c97ef077db19fc54ce5e22349"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/ipc/CLAUDE.md": {
+    "mtime": 1774280158.6142392,
+    "hash": "b20e7bc66655e4cd7d1382d2a9b3957e"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/main/services/CLAUDE.md": {
+    "mtime": 1774280158.6160996,
+    "hash": "698258d9d3daf74c5cdd4f770f8868a2"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/preload/CLAUDE.md": {
+    "mtime": 1774280158.623394,
+    "hash": "af72f5ab988c5f31b4e2cb8ad1b86e8b"
+  },
+  "/Users/wesleyfrederick/Documents/ObsidianVault/0_SoftwareDevelopment/claude-devtools/src/renderer/favicon.png": {
+    "mtime": 1774280158.6387117,
+    "hash": "e6d2972987d7a5d0eacf3f5107364b02"
+  }
+}
