@@ -1,0 +1,10 @@
+#!/bin/bash
+# Layer 2 — reject any manual/editor commit while HEAD is main.
+# Note: `git commit --no-verify` bypasses this hook; that is why the auto-commit
+# script carries its own in-script branch guard (Layer 1).
+branch=$(git symbolic-ref --short HEAD 2>/dev/null || echo "")
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+    echo "pre-commit: refusing commit on '$branch' — switch to a feature branch (fork main only fast-forwards from upstream)." >&2
+    exit 1
+fi
+exit 0
