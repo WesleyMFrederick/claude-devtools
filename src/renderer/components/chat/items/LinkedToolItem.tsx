@@ -65,7 +65,10 @@ export const LinkedToolItem: React.FC<LinkedToolItemProps> = React.memo(function
   registerRef,
 }) {
   const status = getToolStatus(linkedTool);
-  const summary = getToolSummary(linkedTool.name, linkedTool.input);
+  const summary =
+    linkedTool.name === 'advisor'
+      ? (linkedTool.sourceModel ?? 'advisor')
+      : getToolSummary(linkedTool.name, linkedTool.input);
   const elementRef = useRef<HTMLDivElement>(null);
 
   // Combined ref callback - handles both internal ref and external registration

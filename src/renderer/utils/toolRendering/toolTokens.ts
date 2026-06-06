@@ -13,6 +13,9 @@ import type { LinkedToolItem } from '@renderer/types/groups';
  * Calculates total context tokens consumed by a tool operation.
  */
 export function getToolContextTokens(linkedTool: LinkedToolItem): number {
+  // advisor is a server tool — no tokens returned, no synthesized count (D3)
+  if (linkedTool.name === 'advisor') return 0;
+
   let totalTokens = 0;
 
   // Tool CALL tokens (what Claude generated)

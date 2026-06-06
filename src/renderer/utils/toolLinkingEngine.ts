@@ -81,13 +81,16 @@ export function linkToolCallsToResults(
 
     // Calculate callTokens directly from tool name + input
     // This reflects what actually enters the context window (not proportioned output_tokens)
-    const callTokens = estimateTokens(toolName + JSON.stringify(toolInput));
+    // advisor is a server tool with no tokens returned — suppress synthesized count (D3)
+    const callTokens =
+      toolName === 'advisor' ? undefined : estimateTokens(toolName + JSON.stringify(toolInput));
 
     const linkedItem: LinkedToolItem = {
       id: toolCallId,
       name: toolName,
       input: toolInput as Record<string, unknown>,
-      callTokens, // Token count for tool call (what Claude generated)
+      callTokens,
+      sourceModel: callStep.content.sourceModel, // D4: carry from call step
       result: resultStep
         ? {
             content: resultStep.content.toolResultContent ?? '',

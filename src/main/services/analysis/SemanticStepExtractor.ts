@@ -90,6 +90,40 @@ export function extractSemanticStepsFromAIChunk(chunk: AIChunk | EnhancedAIChunk
           });
         }
 
+        if (block.type === 'server_tool_use' && block.name === 'advisor' && block.id) {
+          // advisor CALL — no tokens (D3), sourceModel from entry-level advisorModel (D4)
+          steps.push({
+            id: block.id,
+            type: 'tool_call',
+            startTime: new Date(msg.timestamp),
+            durationMs: 0,
+            content: {
+              toolName: 'advisor',
+              toolInput: {},
+              sourceModel: msg.advisorModel,
+            },
+            context: msg.agentId ? 'subagent' : 'main',
+            agentId: msg.agentId,
+            sourceMessageId: msg.uuid,
+          });
+        }
+
+        if (block.type === 'advisor_tool_result' && block.tool_use_id) {
+          // advisor RESULT — rides the assistant entry, no tokens (D3)
+          steps.push({
+            id: block.tool_use_id,
+            type: 'tool_result',
+            startTime: new Date(msg.timestamp),
+            durationMs: 0,
+            content: {
+              toolResultContent: block.content.text,
+              isError: false,
+            },
+            context: msg.agentId ? 'subagent' : 'main',
+            agentId: msg.agentId,
+          });
+        }
+
         if (block.type === 'text' && block.text) {
           // Calculate tokens for text output (Claude's generated text)
           const textTokens = countContentTokens(block.text);
