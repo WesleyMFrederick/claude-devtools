@@ -48,6 +48,3 @@ claude-dev.tools/*
 
 eslint-fix/
 remotion/*
-
-# Symlink Configs
-.config-symlink/*
