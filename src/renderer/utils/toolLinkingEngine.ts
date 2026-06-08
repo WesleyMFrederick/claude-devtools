@@ -81,7 +81,7 @@ export function linkToolCallsToResults(
 
     // Calculate callTokens directly from tool name + input
     // This reflects what actually enters the context window (not proportioned output_tokens)
-    // advisor is a server tool with no tokens returned — suppress synthesized count (D3)
+    // advisor input is empty ({}), so callTokens stays undefined and the fallback estimates ~0
     const callTokens =
       toolName === 'advisor' ? undefined : estimateTokens(toolName + JSON.stringify(toolInput));
 

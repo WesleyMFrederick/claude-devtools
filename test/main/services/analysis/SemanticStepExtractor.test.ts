@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { extractSemanticStepsFromAIChunk } from '../../../../src/main/services/analysis/SemanticStepExtractor';
+import { countContentTokens } from '../../../../src/main/utils/tokenizer';
 import type { AIChunk } from '../../../../src/main/types/chunks';
 import type { ParsedMessage } from '../../../../src/main/types/messages';
 import {
@@ -55,13 +56,13 @@ describe('SemanticStepExtractor — advisor blocks', () => {
     expect(resultStep!.content.isError).toBe(false);
   });
 
-  it('does NOT add tokens to the advisor tool_result step (D3)', () => {
+  it('counts the advisor result tokens from the advice text', () => {
     const chunk = makeChunk([advisorResultMessage]);
     const steps = extractSemanticStepsFromAIChunk(chunk);
 
     const resultStep = steps.find((s) => s.type === 'tool_result' && s.id === ADVISOR_CALL_ID);
     expect(resultStep).toBeDefined();
-    expect(resultStep!.tokens).toBeUndefined();
-    expect(resultStep!.content.tokenCount).toBeUndefined();
+    expect(resultStep!.content.tokenCount).toBe(countContentTokens(ADVISOR_TEXT));
+    expect(resultStep!.content.tokenCount).toBeGreaterThan(0);
   });
 });

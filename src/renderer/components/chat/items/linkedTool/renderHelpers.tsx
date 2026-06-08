@@ -95,6 +95,10 @@ export function renderInput(toolName: string, input: Record<string, unknown>): R
     );
   }
 
+  if (Object.keys(input).length === 0) {
+    return <span style={{ color: COLOR_TEXT_MUTED }}>no parameters</span>;
+  }
+
   // Default: key-value format with readable string values
   return (
     <div className="space-y-2" style={{ color: COLOR_TEXT }}>
@@ -152,7 +156,7 @@ export function extractOutputText(content: string | unknown[]): string {
       .map((block) =>
         typeof block === 'object' && block !== null && 'text' in block
           ? (block as { text: string }).text
-          : JSON.stringify(block, null, 2),
+          : JSON.stringify(block, null, 2)
       )
       .join('\n');
   } else {

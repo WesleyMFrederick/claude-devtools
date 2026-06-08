@@ -91,7 +91,7 @@ export function extractSemanticStepsFromAIChunk(chunk: AIChunk | EnhancedAIChunk
         }
 
         if (block.type === 'server_tool_use' && block.name === 'advisor' && block.id) {
-          // advisor CALL — no tokens (D3), sourceModel from entry-level advisorModel (D4)
+          // advisor CALL — input is empty so callTokens stay undefined (fallback estimates ~0)
           steps.push({
             id: block.id,
             type: 'tool_call',
@@ -109,7 +109,7 @@ export function extractSemanticStepsFromAIChunk(chunk: AIChunk | EnhancedAIChunk
         }
 
         if (block.type === 'advisor_tool_result' && block.tool_use_id) {
-          // advisor RESULT — rides the assistant entry, no tokens (D3)
+          // advisor RESULT — advice text is real consumed context, counted like any tool result
           steps.push({
             id: block.tool_use_id,
             type: 'tool_result',
@@ -118,6 +118,7 @@ export function extractSemanticStepsFromAIChunk(chunk: AIChunk | EnhancedAIChunk
             content: {
               toolResultContent: block.content.text,
               isError: false,
+              tokenCount: countContentTokens(block.content.text),
             },
             context: msg.agentId ? 'subagent' : 'main',
             agentId: msg.agentId,
