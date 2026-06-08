@@ -15,6 +15,7 @@ import {
 
 /**
  * Renders the input section based on tool type with theme-aware styling.
+ * Returns a "no parameters" placeholder when input is an empty object.
  */
 export function renderInput(toolName: string, input: Record<string, unknown>): React.ReactElement {
   // Special rendering for Edit tool - show diff-like format

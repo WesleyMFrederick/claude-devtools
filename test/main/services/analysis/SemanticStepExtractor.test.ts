@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { extractSemanticStepsFromAIChunk } from '../../../../src/main/services/analysis/SemanticStepExtractor';
-import { countContentTokens } from '../../../../src/main/utils/tokenizer';
 import type { AIChunk } from '../../../../src/main/types/chunks';
 import type { ParsedMessage } from '../../../../src/main/types/messages';
 import {
@@ -62,7 +61,8 @@ describe('SemanticStepExtractor — advisor blocks', () => {
 
     const resultStep = steps.find((s) => s.type === 'tool_result' && s.id === ADVISOR_CALL_ID);
     expect(resultStep).toBeDefined();
-    expect(resultStep!.content.tokenCount).toBe(countContentTokens(ADVISOR_TEXT));
+    // 40 = countContentTokens(ADVISOR_TEXT) — literal guards against tautological re-import
+    expect(resultStep!.content.tokenCount).toBe(40);
     expect(resultStep!.content.tokenCount).toBeGreaterThan(0);
   });
 });

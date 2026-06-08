@@ -110,15 +110,16 @@ export function extractSemanticStepsFromAIChunk(chunk: AIChunk | EnhancedAIChunk
 
         if (block.type === 'advisor_tool_result' && block.tool_use_id) {
           // advisor RESULT — advice text is real consumed context, counted like any tool result
+          const advisorText = block.content?.text ?? '';
           steps.push({
             id: block.tool_use_id,
             type: 'tool_result',
             startTime: new Date(msg.timestamp),
             durationMs: 0,
             content: {
-              toolResultContent: block.content.text,
+              toolResultContent: advisorText,
               isError: false,
-              tokenCount: countContentTokens(block.content.text),
+              tokenCount: advisorText ? countContentTokens(advisorText) : 0,
             },
             context: msg.agentId ? 'subagent' : 'main',
             agentId: msg.agentId,
