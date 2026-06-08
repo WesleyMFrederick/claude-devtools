@@ -90,7 +90,7 @@ export function linkToolCallsToResults(
       name: toolName,
       input: toolInput as Record<string, unknown>,
       callTokens,
-      sourceModel: callStep.content.sourceModel, // D4: carry from call step
+      sourceModel: callStep.content.sourceModel, // carried from the call step (advisor model)
       result: resultStep
         ? {
             content: resultStep.content.toolResultContent ?? '',

@@ -472,7 +472,6 @@ export function buildDisplayItemsFromMessages(
           toolResultsById.set(block.tool_use_id, {
             content: block.content.text,
             isError: false,
-            toolUseResult: undefined,
             timestamp: msgTimestamp,
           });
         } else if (block.type === 'text' && block.text) {
