@@ -10,6 +10,7 @@ import React, { useRef } from 'react';
 
 import { CARD_ICON_MUTED } from '@renderer/constants/cssVariables';
 import { getTeamColorSet } from '@renderer/constants/teamColors';
+import { capitalize } from '@renderer/utils/stringUtils';
 import {
   getToolContextTokens,
   getToolStatus,
@@ -157,7 +158,7 @@ export const LinkedToolItem: React.FC<LinkedToolItemProps> = React.memo(function
             style={{ color: isHighlighted ? getTriggerColorDef(highlightColor).hex : undefined }}
           />
         }
-        label={linkedTool.name.charAt(0).toUpperCase() + linkedTool.name.slice(1)}
+        label={capitalize(linkedTool.name)}
         summary={summary}
         tokenCount={getToolContextTokens(linkedTool)}
         status={status}
