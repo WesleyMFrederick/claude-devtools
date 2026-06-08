@@ -470,7 +470,7 @@ export function buildDisplayItemsFromMessages(
           });
         } else if (block.type === 'advisor_tool_result' && block.tool_use_id) {
           toolResultsById.set(block.tool_use_id, {
-            content: block.content.text,
+            content: block.content?.text ?? '',
             isError: false,
             timestamp: msgTimestamp,
           });
