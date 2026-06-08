@@ -77,7 +77,7 @@ export interface ParsedMessage {
   usage?: TokenUsage;
   /** Model used for this response */
   model?: string;
-  /** Advisor model, when this entry invoked /advisor */
+  /** Advisor model identifier; set only when this entry invoked the advisor tool. */
   advisorModel?: string;
   // Metadata
   /** Current working directory when message was created */

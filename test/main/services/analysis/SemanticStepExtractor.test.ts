@@ -35,7 +35,7 @@ describe('SemanticStepExtractor — advisor blocks', () => {
     expect(callStep!.content.sourceModel).toBe(ADVISOR_MODEL);
   });
 
-  it('does NOT add tokens to the advisor tool_call step (D3)', () => {
+  it('does NOT add tokens to the advisor tool_call step', () => {
     const chunk = makeChunk([advisorCallMessage]);
     const steps = extractSemanticStepsFromAIChunk(chunk);
 

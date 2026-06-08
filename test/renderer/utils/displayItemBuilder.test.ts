@@ -126,7 +126,7 @@ describe('buildDisplayItemsFromMessages', () => {
       expect(toolItem.tool.result?.content).toBe(ADVISOR_TEXT);
     });
 
-    it('carries sourceModel on the tool item (D4)', () => {
+    it('carries sourceModel on the tool item', () => {
       const items = buildDisplayItemsFromMessages([advisorCallMessage, advisorResultMessage], []);
       const toolItem = items.find((i) => i.type === 'tool' && i.tool.name === 'advisor');
       if (toolItem?.type !== 'tool') throw new Error('Expected tool item');

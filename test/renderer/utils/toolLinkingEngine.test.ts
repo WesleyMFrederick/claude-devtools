@@ -33,7 +33,7 @@ function makeAdvisorResultStep(): SemanticStep {
 }
 
 describe('linkToolCallsToResults — advisor', () => {
-  it('carries sourceModel from the call step (D4)', () => {
+  it('carries sourceModel from the call step', () => {
     const steps = [makeAdvisorCallStep(), makeAdvisorResultStep()];
     const linked = linkToolCallsToResults(steps);
 
@@ -42,7 +42,7 @@ describe('linkToolCallsToResults — advisor', () => {
     expect(item!.sourceModel).toBe(ADVISOR_MODEL);
   });
 
-  it('does NOT synthesize callTokens for advisor (D3)', () => {
+  it('does NOT synthesize callTokens for advisor', () => {
     const steps = [makeAdvisorCallStep(), makeAdvisorResultStep()];
     const linked = linkToolCallsToResults(steps);
 
@@ -62,7 +62,7 @@ describe('linkToolCallsToResults — advisor', () => {
     expect(item!.isOrphaned).toBe(false);
   });
 
-  it('counts advisor in the linked tool map (D2 — part of tool total)', () => {
+  it('counts advisor in the linked tool map (part of tool total)', () => {
     const normalCallStep: SemanticStep = {
       id: 'toolu_normal',
       type: 'tool_call',
