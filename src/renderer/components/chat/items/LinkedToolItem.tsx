@@ -157,7 +157,7 @@ export const LinkedToolItem: React.FC<LinkedToolItemProps> = React.memo(function
             style={{ color: isHighlighted ? getTriggerColorDef(highlightColor).hex : undefined }}
           />
         }
-        label={linkedTool.name}
+        label={linkedTool.name.charAt(0).toUpperCase() + linkedTool.name.slice(1)}
         summary={summary}
         tokenCount={getToolContextTokens(linkedTool)}
         status={status}
